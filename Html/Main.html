@@ -1,81 +1,39 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pdf Exchange Platform</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pdf Exchange Platform</title>
 
-    <!--Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <!--Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
 
+    <body>
+        <div class="text-center d-flex justify-content-center align-items-center flex-column vh-100">
+            <header class=" container py-5">
+                <h1 class="fw-bold display-3">Benvenuto!</h1>
+                <h2 class=" h5 fs-6">Scambia qui i tuoi appunti</h2>
+            </header>
 
-    <style>
+            <main class="container">
+                <div class="d-flex flex-column gap-3 mx-auto" style="max-width: 340px;">
+                    <button id="Accedi-btn" class="Accedi-btn px-4 py-2 fw-semibold text-white">Accedi</button>
+                    <button id="Registrati-btn" class="Registrati-btn px-4 py-2 fw-semibold">Non hai ancora un account? Registrati</button>
+                </div>
+            </main>
+        </div>
 
-        body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+        <footer class="footer py-4 px-4 text-white">
+            <h3>Contatti</h3>
+            <ul class="list-unstyled mb-0">
+                    <li><a class="text-white text-decoration-none" href="#">elena.fucci3@studio.unibo.it</a></li>
+                    <li><a class="text-white text-decoration-none" href="#">leonardo.damario@studio.unibo.it</a></li>
+                    <li><a class="text-white text-decoration-none" href="#">maddalena.prandini@studio.unibo.it</a></li>
+            </ul>
+        </footer>
 
-        .content {
-            background-color: #F5F5F5;
-            color: #00274D;
-            flex-grow: 1;
-        }
-
-        .Accedi-btn {
-            background-color: #00274D;
-            border: 2px solid #00274D;
-            color: #FFFFFF;
-            font-weight: 600;
-        }
-
-        .Registrati-btn {
-            background-color: #F5F5F5;
-            border: 2px solid #00274D;
-            color: #00274D;
-            font-weight: 600;
-        }
-
-        .Registrati-btn:hover {
-            background-color: #00274D;
-            border-color: #00274D;
-            color: #FFFFFF;
-        }
-
-        footer {
-            background-color: #00274D;
-            margin-top: auto; /* Spinge il footer verso il basso */
-        }
-
-    </style>
-
-</head>
-
-<body>
-    <div class="content text-center d-flex flex-column justify-content-center">
-        <header class=" container py-5">
-            <h1 class="fw-bold display-3">Benvenuto!</h1>
-            <h2 class=" h5 fs-6">Scambia qui i tuoi appunti</h2>
-        </header>
-
-        <main class="container">
-            <div class="d-flex flex-column gap-3 mx-auto" style="max-width: 340px;">
-                <button id="Accedi-btn" class="Accedi-btn px-4 py-2 fw-semibold">Accedi</button>
-                <button id="Registrati-btn" class="Registrati-btn px-4 py-2 fw-semibold">Non hai ancora un account? Registrati</button>
-            </div>
-        </main>
-    </div>
-
-    <footer class="footer py-4 px-4 text-white">
-        <h3>Contatti</h3>
-        <ul class="list-unstyled mb-0">
-                <li><a class="text-white text-decoration-none" href="#">elena.fucci3@studio.unibo.it</a></li>
-                <li><a class="text-white text-decoration-none" href="#">leonardo.damario@studio.unibo.it</a></li>
-                <li><a class="text-white text-decoration-none" href="#">maddalena.prandini@studio.unibo.it</a></li>
-        </ul>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>

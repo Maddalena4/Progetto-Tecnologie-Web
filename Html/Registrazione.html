@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registrazione - Pdf Exchange Platform</title>
+
+        <!--Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <main class="text-center d-flex justify-content-center align-items-center flex-column vh-100">
+            <h1 class="fw-bold display-3">Registrati</h1>
+            <form action="Registrazione " class="py-3">
+                <ul class="list-unstyled">
+                    <li class="row mb-3">
+                        <div class="col-5"><label for="Email">Email:</label></div>
+                        <div class="col-5"><input type="text" id="Email" name="email" required/></div>
+                    </li>
+                    <li class="row mb-3">
+                        <div class="col-5"><label for="ConfermaEmail">Conferma Email:</label></div>
+                        <div class="col-5"><input type="text" id="ConfermaEmail" name="conferma-email" required/></div>
+                    </li>
+                    <li class="row mb-3">
+                        <div class="col-5"><label for="Password">Password:</label></div>
+                        <div class="col-5"><input type="password" id="Password" name="password" required/></div>
+                    </li>
+                    <li class="row mb-5">
+                        <div class="col-5"><label for="ConfermaPassword">Conferma Password:</label></div>
+                        <div class="col-5"><input type="password" id="ConfermaPassword" name="conferma-password" required/></div>
+                    </li>
+                    <li>
+                        <div class="d-grid"><input class="btn btn-dark" type="submit" value="Invio"></div>
+                    </li>
+                </ul>
+            </form>
+        </main>
+
+         <footer class="footer py-4 px-4 text-white">
+            <h3>Contatti</h3>
+            <ul class="list-unstyled mb-0">
+                    <li><a class="text-white text-decoration-none" href="#">elena.fucci3@studio.unibo.it</a></li>
+                    <li><a class="text-white text-decoration-none" href="#">leonardo.damario@studio.unibo.it</a></li>
+                    <li><a class="text-white text-decoration-none" href="#">maddalena.prandini@studio.unibo.it</a></li>
+            </ul>
+        </footer>
+
+    </body>
+</html>
