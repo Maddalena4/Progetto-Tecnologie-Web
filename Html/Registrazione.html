@@ -11,27 +11,29 @@
     </head>
     <body>
         <main class="text-center d-flex justify-content-center align-items-center flex-column vh-100">
-            <h1 class="fw-bold display-3">Registrati</h1>
+            <h1 class="mb-2 fw-bold display-3">Registrati</h1>
             <form action="Registrazione " class="py-3">
                 <ul class="list-unstyled">
                     <li class="row mb-3">
-                        <div class="col-5"><label for="Email">Email:</label></div>
-                        <div class="col-5"><input type="text" id="Email" name="email" required/></div>
+                        <div class="col-6 fw-bold"><label for="Email">Email:</label></div>
+                        <div class="col-6"><input type="text" id="Email" name="email" required/></div>
                     </li>
                     <li class="row mb-3">
-                        <div class="col-5"><label for="ConfermaEmail">Conferma Email:</label></div>
-                        <div class="col-5"><input type="text" id="ConfermaEmail" name="conferma-email" required/></div>
+                        <div class="col-6 fw-bold"><label for="ConfermaEmail">Conferma Email:</label></div>
+                        <div class="col-6"><input type="text" id="ConfermaEmail" name="conferma-email" required/></div>
                     </li>
                     <li class="row mb-3">
-                        <div class="col-5"><label for="Password">Password:</label></div>
-                        <div class="col-5"><input type="password" id="Password" name="password" required/></div>
+                        <div class="col-6 fw-bold"><label for="Password">Password:</label></div>
+                        <div class="col-6"><input type="password" id="Password" name="password" required/></div>
                     </li>
                     <li class="row mb-5">
-                        <div class="col-5"><label for="ConfermaPassword">Conferma Password:</label></div>
-                        <div class="col-5"><input type="password" id="ConfermaPassword" name="conferma-password" required/></div>
+                        <div class="col-6 fw-bold"><label for="ConfermaPassword">Conferma Password:</label></div>
+                        <div class="col-6"><input type="password" id="ConfermaPassword" name="conferma-password" required/></div>
                     </li>
                     <li>
-                        <div class="d-grid"><input class="btn btn-dark" type="submit" value="Invio"></div>
+                        <div class="d-flex flex-column mx-auto" style="max-width: 220px;">
+                            <button type="submit" class="Invio text-white">Invio</button>
+                        </div>
                     </li>
                 </ul>
             </form>

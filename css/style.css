@@ -2,13 +2,9 @@
         min-height: 100vh;
         display: flex;
         flex-direction: column;
+        background-color: #F5F5F5;
     }
 
-    body > div {
-        background-color: #F5F5F5;
-        color: #00274D;
-        flex-grow: 1;
-    }
 
     body > div> main > div > button:first-child {
         background-color: #00274D;
@@ -32,4 +28,24 @@
     footer {
         background-color: #00274D;
         margin-top: auto; /* Spinge il footer verso il basso */
+    }
+
+    h1, h2, label{
+        color: #00274D;
+    }
+
+    body> main > form > ul> li > div > input{
+        background-color: #00274D;
+    }
+
+    body> main > form > ul> li > div > button{
+        background-color: #00274D;
+    }
+
+    body>nav{
+        background-color: #00274D;
+    }
+
+    body > nav > button{
+        background-color: #F5F5F5;
     }
