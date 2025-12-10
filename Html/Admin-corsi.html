@@ -19,7 +19,7 @@
 
     <!-- NAVBAR -->
     <nav class="navbar navbar-light shadow-sm px-3">
-        <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Apri menu laterale">
+        <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" >
             <i class="bi bi-list"></i>
         </button>
         <span class="fw-bold ms-2 text-white">Università di Bologna</span>
@@ -44,33 +44,17 @@
                     <a class="sidebar-link nav-link" href="#"><i class="bi bi-person-fill me-2"></i>Nome Utente</a>
                 </li>
                 <li class="nav-item">
-                    <a class="sidebar-link nav-link" href="#"><i class="bi bi-upload me-2"></i>Upload</a>
-                </li>
-                <li class="nav-item">
-                    <a class="sidebar-link nav-link" href="#"><i class="bi bi-download me-2"></i>Download</a>
-                </li>
-                <li class="nav-item">
                     <a class="sidebar-link nav-link" href="#"><i class="bi bi-house-fill me-2"></i>Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="sidebar-link nav-link" href="#"><i class="bi bi-book-half me-2"></i>Libreria</a>
+                    <a class="sidebar-link nav-link" href="#"><i class="bi bi-journal-bookmark-fill me-2"></i>Corsi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="sidebar-link nav-link" href="#"><i class="bi bi-folder2-open me-2"></i>Scaricati</a>
+                    <a class="sidebar-link nav-link" href="#"><i class="bi bi-mortarboard-fill me-2"></i>Facoltà</a>
                 </li>
             </ul>
 
             <hr class="text-white my-3">
-
-            <!-- Secondo gruppo -->
-            <ul class="nav flex-column gap-3">
-                <li class="nav-item">
-                    <a class="sidebar-link nav-link" href="#"><i class="bi bi-star-fill me-2"></i>Seguiti</a>
-                </li>
-                <li class="nav-item">
-                    <a class="sidebar-link nav-link" href="#"><i class="bi bi-star-fill me-2"></i>Valutati</a>
-                </li>
-            </ul>
 
         </div>
     </div>
@@ -78,65 +62,67 @@
     <!-- CONTENUTO PRINCIPALE -->
     <main class="container py-5 vh-100 flex-column">
 
-        <h2 class="fw-bold mb-4">Università di Bologna</h2>
+        <h2 class="fw-bold mb-4">Ingegneria e Scienze Informatiche</h2>
 
-        <div class="row gy-3">
+        <div class="dropdown mb-4">
+            <button class="btn btn-navy dropdown-toggle" type="button" id="dropdownAnno" data-bs-toggle="dropdown" aria-expanded="false">
+                1° anno
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">1° anno</a></li>
+                <li><a class="dropdown-item" href="#">2° anno</a></li>
+                <li><a class="dropdown-item" href="#">3° anno</a></li>
+            </ul>
+        </div>
+
+        <div class="row gy-3 align-items-center">
 
             <div class="col-6 col-md-7">
                 <a href="#" class="scelta text-start text-decoration-none">
-                    <i class="bi bi-flower1 me-2"></i> Ingegneria e Scienze Informatiche
+                    <i class="bi bi-flower1 me-2"></i> Analisi
                 </a>
             </div>
             <div class="col-3 col-md-2 text-center">
                 <strong>122209</strong>
             </div>
+            <div class="col-3 col-md-3 text-end">
+                <button type="button" class="btn btn-navy btn-sm">
+                    <i class="bi bi-trash-fill"></i>
+                </button>
+            </div>
 
             <div class="col-6 col-md-7">
                 <a href="#" class="scelta d-block text-start text-decoration-none">
-                    <i class="bi bi-flower1 me-2"></i> Economia
+                    <i class="bi bi-flower1 me-2"></i> Programmazione
                 </a>
             </div>
             <div class="col-3 col-md-2 text-center">
                 <strong>122869</strong>
             </div>
+            <div class="col-3 col-md-3 text-end">
+                <button type="button" class="btn btn-navy btn-sm">
+                    <i class="bi bi-trash-fill"></i>
+                </button>
+            </div>
 
             <div class="col-6 col-md-7">
                 <a href="#" class="scelta d-block text-start text-decoration-none">
-                    <i class="bi bi-flower1 me-2"></i> Ingegneria e Scienze Informatiche
+                    <i class="bi bi-flower1 me-2"></i> Inglese B1
                 </a>
             </div>
             <div class="col-3 col-md-2 text-center">
                 <strong>134525</strong>
             </div>
-
-
-            <div class="col-6 col-md-7">
-                <a href="#" class="scelta d-block text-start text-decoration-none">
-                    <i class="bi bi-flower1 me-2"></i> Psicologia
-                </a>
-            </div>
-            <div class="col-3 col-md-2 text-center">
-                <strong>847565</strong>
+            <div class="col-3 col-md-3 text-end">
+                <button type="button" class="btn btn-navy btn-sm">
+                    <i class="bi bi-trash-fill"></i>
+                </button>
             </div>
 
-            <div class="col-6 col-md-7">
-                <a href="#" class="scelta d-block text-start text-decoration-none">
-                    <i class="bi bi-flower1 me-2"></i> Architettura
-                </a>
-            </div>
-            <div class="col-3 col-md-2 text-center">
-                <strong>83645</strong>
-            </div>
+        </div>
 
-            <div class="col-6 col-md-7">
-                <a href="#" class="scelta d-block text-start text-decoration-none">
-                    <i class="bi bi-flower1 me-2"></i> Ingegneria e Scienze Informatiche
-                </a>
-            </div>
-            <div class="col-3 col-md-2 text-center">
-                <strong>63533</strong>
-            </div>
-
+        <div class="text-center mt-4 py-5">
+            <button type="button" class="btn btn-crea-lg">+ Crea</button>
         </div>
 
     </main>

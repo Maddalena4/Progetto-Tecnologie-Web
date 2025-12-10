@@ -59,3 +59,24 @@
         color: #fff;
         font-weight: 600;
     }
+
+    main > div > div > a{
+        color:#000000;
+    }
+
+    main > div > div > a:hover{
+        color:#00274D;
+        font-weight: bold;
+    }
+
+    main > div:last-child > button{
+        color: #FFFFFF;
+        background-color: #00274D;
+    }
+
+    main > div:last-child > button:hover{
+        color: #00274D;
+        background-color: #F5F5F5;
+        border-color: #00274D;
+        font-weight: bold;
+    }
