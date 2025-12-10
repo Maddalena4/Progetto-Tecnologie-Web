@@ -49,3 +49,13 @@
     body > nav > button{
         background-color: #F5F5F5;
     }
+
+    body > div#sidebar {
+        background-color: #02284a;
+        color: white;
+    }
+
+    body > div#sidebar a.nav-link {
+        color: #fff;
+        font-weight: 600;
+    }
