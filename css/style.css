@@ -4,8 +4,7 @@
         flex-direction: column;
         background-color: #F5F5F5;
     }
-
-
+    
     body > div> main > div > button:first-child {
         background-color: #00274D;
         border: 2px solid #00274D;
