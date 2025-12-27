@@ -33,5 +33,5 @@ $templateParams["css_file"] = "registrazione.css";
 $templateParams["usa_sidebar"] = false;
 $templateParams["errore"] = $errore;
 
-require 'templates/base.php';
+require 'templates/registrazione_form.php';
 ?>
