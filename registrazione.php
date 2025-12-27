@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 $templateParams["titolo"] = "Registrazione";
 $templateParams["nome"] = "templates/registrazione_form.php";
-$templateParams["css_file"] = "registrazione_style.css";
+$templateParams["css_file"] = "registrazione.css";
 $templateParams["usa_sidebar"] = false;
 $templateParams["errore"] = $errore;
 
