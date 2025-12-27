@@ -1,6 +1,6 @@
 INSERT INTO user (email, password, role) VALUES
-('admin@mail.it', '$2y$10$Z9mZrY5t6dJrY1Yqv2cVSOe9yQwF6E1rK6Vn5YqJ6NqE6OZ5uXy', 'admin'),
-('user@mail.it', '$2y$10$Z9mZrY5t6dJrY1Yqv2cVSOe9yQwF6E1rK6Vn5YqJ6NqE6OZ5uXy', 'user');
+('maddalena.prandini@studio.unibo.it', 'ok', 'admin'),
+('ciao.ciao@gmail.com', 'prova', 'user');
 
 INSERT INTO facolta (nome, tipologia) VALUES
 ('Informatica', 'triennale'),

@@ -17,6 +17,7 @@ body {
         border: 2px solid #00274D;
         color: #00274D;
         font-weight: 600;
+        border-radius: 12px;
     }
 
     body > div > main > div > button:last-child:hover {

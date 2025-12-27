@@ -28,17 +28,20 @@
         </main>
 
     <?php else: ?>
-        <div class="text-center d-flex justify-content-center align-items-center flex-column vh-100">
-            <header class="container py-5">
+    <div class="d-flex justify-content-center align-items-center flex-column vh-100">
+
+        <?php if (!empty($templateParams["show_welcome"])): ?>
+            <header class="container py-5 text-center">
                 <h1 class="fw-bold display-3">Benvenuto!</h1>
                 <h2 class="h5 fs-6">Scambia qui i tuoi appunti</h2>
             </header>
+        <?php endif; ?>
 
-            <main class="container">
-                <?php require($templateParams["nome"]); ?>
-            </main>
-        </div>
-    <?php endif; ?>
+        <main class="container">
+            <?php require($templateParams["nome"]); ?>
+        </main>
+    </div>
+<?php endif; ?>
 
     <footer class="footer py-4 px-4 text-white">
         <?php if(!isset($templateParams["usa_sidebar"])): ?>

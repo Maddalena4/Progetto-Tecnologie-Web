@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $msg = $db->registerUser($email, $password);
 
         if ($msg === "Registrazione completata") {
-            header("Location: index.php");
+            header("Location: login.php");
             exit;
         } else {
             $errore = $msg; // Email già registrata
@@ -31,7 +31,8 @@ $templateParams["titolo"] = "Registrazione";
 $templateParams["nome"] = "templates/registrazione_form.php";
 $templateParams["css_file"] = "registrazione.css";
 $templateParams["usa_sidebar"] = false;
+$templateParams["show_welcome"] = false;
 $templateParams["errore"] = $errore;
 
-require 'templates/registrazione_form.php';
+require 'templates/base.php';
 ?>

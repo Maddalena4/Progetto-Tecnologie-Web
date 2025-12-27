@@ -21,10 +21,9 @@
                 <input type="password" name="password" class="form-control" required>
             </div>
 
-            <button type="submit" class="btn btn-primary w-100">
-                Entra
+            <button type="submit" class="btn btn-lg w-100 gradient-btn">
+                ACCEDI
             </button>
-
         </form>
 
     </div>

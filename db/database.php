@@ -10,37 +10,52 @@ class DatabaseHelper{
     }
 
     // Login
-    public function loginUser($email, $password) {
-        $stmt = $this->db->prepare("SELECT iduser, password, role FROM user WHERE email = ?"); // Nota: tabella 'user' non 'users' come nel tuo SQL
-        $stmt->bind_param('s', $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $user = $result->fetch_assoc();
+   public function loginUser($email, $password) {
+    $stmt = $this->db->prepare(
+        "SELECT iduser, password, role FROM user WHERE email = ?"
+    );
+    $stmt->bind_param('s', $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
 
-        if ($user && password_verify($password, $user['password'])) {
-            return [
-                'iduser' => $user['iduser'],
-                'role' => $user['role']
-            ];
-        }
-        return false;
+    // confronto diretto (NO hash)
+    if ($user && $password === $user['password']) {
+        return [
+            'iduser' => $user['iduser'],
+            'role'   => $user['role']
+        ];
     }
+
+    return false;
+}
+
 
     // Registrazione
-    public function registerUser($email, $password) {
-        $stmt = $this->db->prepare("SELECT iduser FROM user WHERE email = ?");
-        $stmt->bind_param('s', $email);
-        $stmt->execute();
-        if ($stmt->get_result()->num_rows > 0) {
-            return "Email già registrata";
-        }
+   public function registerUser($email, $password) {
 
-        $hash = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = $this->db->prepare("INSERT INTO user (email, password, role) VALUES (?, ?, 'user')");
-        $stmt->bind_param('ss', $email, $hash);
-        
-        return $stmt->execute() ? "Registrazione completata" : "Errore durante la registrazione";
+    // controllo email esistente
+    $stmt = $this->db->prepare(
+        "SELECT iduser FROM user WHERE email = ?"
+    );
+    $stmt->bind_param('s', $email);
+    $stmt->execute();
+
+    if ($stmt->get_result()->num_rows > 0) {
+        return "Email già registrata";
     }
+
+    // insert password IN CHIARO
+    $stmt = $this->db->prepare(
+        "INSERT INTO user (email, password, role) VALUES (?, ?, 'user')"
+    );
+    $stmt->bind_param('ss', $email, $password);
+
+    return $stmt->execute()
+        ? "Registrazione completata"
+        : "Errore durante la registrazione";
+}
+
 
     // Admin: Statistiche Home
     public function getDashboardStats() {
