@@ -1,17 +1,17 @@
 <?php
-
 class DatabaseHelper{
     private $db;
 
     public function __construct($servername, $username, $password, $dbname, $port){
         $this->db = new mysqli($servername, $username, $password, $dbname, $port);
         if ($this->db->connect_error) {
-            die("Connection failed: " . $db->connect_error);
+            die("Connection failed: " . $this->db->connect_error);
         }        
     }
 
+    // Login
     public function loginUser($email, $password) {
-        $stmt = $this->db->prepare("SELECT iduser, password, role FROM users WHERE email = ?");
+        $stmt = $this->db->prepare("SELECT iduser, password, role FROM user WHERE email = ?"); // Nota: tabella 'user' non 'users' come nel tuo SQL
         $stmt->bind_param('s', $email);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -22,89 +22,55 @@ class DatabaseHelper{
                 'iduser' => $user['iduser'],
                 'role' => $user['role']
             ];
-        } else {
-            return false;
         }
+        return false;
     }
 
+    // Registrazione
     public function registerUser($email, $password) {
-        $stmt = $this->db->prepare("SELECT iduser FROM users WHERE email = ?");
+        $stmt = $this->db->prepare("SELECT iduser FROM user WHERE email = ?");
         $stmt->bind_param('s', $email);
         $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
+        if ($stmt->get_result()->num_rows > 0) {
             return "Email già registrata";
         }
 
         $hash = password_hash($password, PASSWORD_DEFAULT);
-
-        $stmt = $this->db->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
+        $stmt = $this->db->prepare("INSERT INTO user (email, password, role) VALUES (?, ?, 'user')");
         $stmt->bind_param('ss', $email, $hash);
-        $stmt->execute();
-
-        if ($stmt->affected_rows === 1) {
-            return "Registrazione completata";
-        } else {
-            return "Errore durante la registrazione";
-        }
+        
+        return $stmt->execute() ? "Registrazione completata" : "Errore durante la registrazione";
     }
 
+    // Admin: Statistiche Home
+    public function getDashboardStats() {
+        $stats = [];
+        
+        $result = $this->db->query("SELECT COUNT(*) as count FROM user");
+        $stats['utenti'] = $result->fetch_assoc()['count'];
+
+        $result = $this->db->query("SELECT COUNT(*) as count FROM facolta");
+        $stats['facolta'] = $result->fetch_assoc()['count'];
+
+        $result = $this->db->query("SELECT COUNT(*) as count FROM corso");
+        $stats['corsi'] = $result->fetch_assoc()['count'];
+
+        return $stats;
+    }
+
+    // Admin: Lista Facoltà
     public function getAllFacolta() {
         $stmt = $this->db->prepare("SELECT idfacolta, nome, tipologia FROM facolta");
         $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
-
-    public function getAnniPerFacolta($idfacolta) {
-        $stmt = $this->db->prepare("SELECT tipologia FROM facolta WHERE idfacolta = ?");
-        $stmt->bind_param('i', $idfacolta);
+    
+    // Admin: Corsi per facoltà e anno
+    public function getCorsiByFacoltaAnno($idFacolta, $anno) {
+        $stmt = $this->db->prepare("SELECT * FROM corso WHERE idfacolta = ? AND anno = ?");
+        $stmt->bind_param('ii', $idFacolta, $anno);
         $stmt->execute();
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
-
-        if (!$row) {
-            return [];
-        }
-        $tipologia = $row['tipologia'];
-        if ($tipologia === 'magistrale') {
-            return [1, 2];
-        } elseif ($tipologia === 'triennale') {
-            return [1, 2, 3];
-        } else {
-            return [];
-        }
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
-
-    public function getCorsiPerFacoltaAnno($idfacolta, $anno) {
-        $stmt = $this->db->prepare("
-            SELECT idcorso, nome 
-            FROM corso 
-            WHERE facolta = ? AND anno = ?
-        ");
-        $stmt->bind_param('ii', $idfacolta, $anno);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function getPdfPerCorso($idcorso) {
-        $stmt = $this->db->prepare("
-            SELECT idpdf, nomefile, mime_type
-            FROM pdf 
-            WHERE idcorso = ?
-        ");
-        $stmt->bind_param('i', $idcorso);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-
 }
-
 ?>
