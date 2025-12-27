@@ -1,6 +1,7 @@
 <?php
 require_once 'utils/functions.php';
 
+session_start();
 $errorMsg = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -27,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 $templateParams["titolo"] = "Login";
-$templateParams["nome"] = "templates/login_form.php"; // Devi creare questo template con il form
+$templateParams["nome"] = "templates/login_form.php"; 
 $templateParams["css_file"] = "home_style.css";
 $templateParams["errore_login"] = $errorMsg;
 

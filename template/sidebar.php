@@ -6,7 +6,13 @@
     <div class="offcanvas-body">
         <ul class="nav flex-column gap-3">
             <li class="nav-item">
-                <a class="sidebar-link nav-link" href="#"><i class="bi bi-person-fill me-2"></i><?php echo $_SESSION['email'] ?? 'Utente'; ?></a>
+                <a class="sidebar-link nav-link" href="#"><i class="bi bi-person-fill me-2"></i>
+                    <?php
+                        if (session_status() === PHP_SESSION_NONE) {
+                            session_start();
+                        }
+                        ?>
+                </a>
             </li>
             <li class="nav-item">
                 <a class="sidebar-link nav-link" href="admin.php?action=home"><i class="bi bi-house-fill me-2"></i>Home</a>
