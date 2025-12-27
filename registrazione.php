@@ -1,5 +1,4 @@
 <?php
-
 require_once 'db/database.php';
 require_once 'utils/functions.php';
 
@@ -7,45 +6,32 @@ session_start();
 
 $errore = "";
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    
-    $email = $_POST['email'];
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    $email = trim($_POST['email']);
     $password = $_POST['password'];
-    $azione = $_POST['azione']; 
+    $repeat = $_POST['repeat_password'];
 
-    $db = getDbInstance();
-
-    if($azione === 'login'){
-        $loginResult = $db->loginUser($email, $password);
-
-        if($loginResult){
-            registerLoggedUser($loginResult);
-
-            if($loginResult['role'] === 'admin'){
-                header("Location: admin.php");
-                exit;
-            } else {
-                header("Location: index.php");
-                exit;
-            }
-        } else {
-            $errore = "Email o password errati.";
-        }
-    } 
-    elseif ($azione === 'registrazione') {
+    if ($password !== $repeat) {
+        $errore = "Le password non coincidono";
+    } else {
+        $db = getDbInstance();
         $msg = $db->registerUser($email, $password);
-        if($msg === "Registrazione completata"){
-             $errore = "Registrazione riuscita! Ora puoi accedere.";
+
+        if ($msg === "Registrazione completata") {
+            header("Location: index.php");
+            exit;
         } else {
-             $errore = $msg;
+            $errore = $msg; // Email già registrata
         }
     }
 }
 
-$templateParams["titolo"] = "Accedi o Registrati";
-$templateParams["nome"] = "templates/registrazione_view.php"; 
-$templateParams["css_file"] = "home_style.css"; 
-$templateParams["errore"] = $errore; 
+$templateParams["titolo"] = "Registrazione";
+$templateParams["nome"] = "templates/registrazione_form.php";
+$templateParams["css_file"] = "registrazione_style.css";
+$templateParams["usa_sidebar"] = false;
+$templateParams["errore"] = $errore;
 
 require 'templates/base.php';
 ?>

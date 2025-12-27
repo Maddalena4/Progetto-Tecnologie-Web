@@ -1,31 +1,63 @@
-<div class="row justify-content-center">
-    <div class="col-md-6 bg-white p-5 rounded shadow">
-        
-        <h2 class="text-center mb-4" style="color: #00274D;">Accedi / Registrati</h2>
+<div class="d-flex justify-content-center align-items-center min-vh-100 px-3">
 
-        <?php if(isset($templateParams["errore"]) && !empty($templateParams["errore"])): ?>
-            <div class="alert alert-danger"><?php echo $templateParams["errore"]; ?></div>
+    <div class="card form-card p-4 p-md-5">
+
+        <h1 class="text-center fw-bold mb-4">CREATE ACCOUNT</h1>
+
+        <?php if (!empty($templateParams["errore"])): ?>
+            <div class="alert alert-danger">
+                <?php echo $templateParams["errore"]; ?>
+            </div>
         <?php endif; ?>
 
-        <form action="registrazione.php" method="POST">
-            
-            <div class="mb-3 text-start">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            
-            <div class="mb-3 text-start">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" required>
+        <form method="POST">
+
+            <!-- EMAIL -->
+            <div class="mb-3">
+                <input type="email"
+                       name="email"
+                       class="form-control form-control-lg"
+                       placeholder="Your Email"
+                       required>
             </div>
 
-            <input type="hidden" name="azione" value="login"> 
+            <!-- PASSWORD -->
+            <div class="mb-3">
+                <input type="password"
+                       name="password"
+                       class="form-control form-control-lg"
+                       placeholder="Password"
+                       required>
+            </div>
 
-            <button type="submit" class="btn btn-primary w-100 py-2" style="background-color: #00274D;">Entra</button>
-            
-            <hr>
-            <p class="text-muted">Non hai un account? (Simulazione bottone registrazione)</p>
-            </form>
+            <!-- REPEAT PASSWORD -->
+            <div class="mb-3">
+                <input type="password"
+                       name="repeat_password"
+                       class="form-control form-control-lg"
+                       placeholder="Repeat your password"
+                       required>
+            </div>
+
+            <!-- TERMS -->
+            <div class="form-check mb-4">
+                <input type="checkbox" class="form-check-input" required>
+                <label class="form-check-label">
+                    I agree all statements in <a href="#">Terms of service</a>
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-lg w-100 gradient-btn">
+                SIGN UP
+            </button>
+
+        </form>
+
+        <div class="text-center mt-4">
+            Hai già un account?
+            <a href="login.php" class="fw-bold">Accedi</a>
+        </div>
 
     </div>
+
 </div>
