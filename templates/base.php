@@ -21,7 +21,17 @@
             <span class="fw-bold ms-2 text-white">Università di Bologna</span>
         </nav>
 
-        <?php require("templates/sidebar.php"); ?>
+        <?php require_once 'utils/functions.php'; ?>
+        <?php
+            $role = getUserRole();
+
+            if ($role === 'admin') {
+                require("templates/sidebar.php");
+            } else {
+                require("templates/sidebar_utente.php");
+            }
+        ?>
+
 
         <main class="container py-5 vh-100 flex-column">
             <?php require($templateParams["nome"]); ?>

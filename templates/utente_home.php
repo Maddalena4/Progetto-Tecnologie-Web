@@ -10,7 +10,7 @@
                     </a>
                 </div>
                 <div class="col-3 col-md-2 text-center">
-                    <strong><?= htmlspecialchars($f['anno']); ?></strong>
+                    <strong><?= htmlspecialchars($f['tipologia']); ?></strong>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
