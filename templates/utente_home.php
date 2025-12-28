@@ -10,7 +10,10 @@
                     </a>
                 </div>
                 <div class="col-3 col-md-2 text-center">
-                    <strong><?= htmlspecialchars($f['tipologia']); ?></strong>
+                    <strong>
+                        <?= htmlspecialchars($f['tipologia']); ?>
+                        (<?= htmlspecialchars($f['idfacolta']); ?>)
+                    </strong>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
