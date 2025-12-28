@@ -28,36 +28,47 @@
         </main>
 
     <?php else: ?>
-    <div class="d-flex justify-content-center align-items-center flex-column vh-100">
+        <div class="d-flex justify-content-center align-items-center flex-column vh-100">
 
-        <?php if (!empty($templateParams["show_welcome"])): ?>
-            <header class="container py-5 text-center">
-                <h1 class="fw-bold display-3">Benvenuto!</h1>
-                <h2 class="h5 fs-6">Scambia qui i tuoi appunti</h2>
-            </header>
-        <?php endif; ?>
+            <?php if (!empty($templateParams["show_welcome"])): ?>
+                <header class="container py-5 text-center">
+                    <h1 class="fw-bold display-3">Benvenuto!</h1>
+                    <h2 class="h5 fs-6">Scambia qui i tuoi appunti</h2>
+                </header>
+            <?php endif; ?>
 
-        <main class="container">
-            <?php require($templateParams["nome"]); ?>
-        </main>
-    </div>
-<?php endif; ?>
+            <main class="container">
+                <?php require($templateParams["nome"]); ?>
+            </main>
+        </div>
+    <?php endif; ?>
 
     <footer class="footer py-4 px-4 text-white">
-        <?php if(!isset($templateParams["usa_sidebar"])): ?>
-            <h3>Contatti</h3>
-        <?php else: ?>
-            <h6 class="fw-bold">Contatti</h6>
-            <p class="mb-1">Contattaci alle nostre mail</p>
-        <?php endif; ?>
-        
-        <ul class="list-unstyled mb-0">
-            <li><a class="text-white text-decoration-none" href="#">elena.fucci3@studio.unibo.it</a></li>
-            <li><a class="text-white text-decoration-none" href="#">leonardo.damario@studio.unibo.it</a></li>
-            <li><a class="text-white text-decoration-none" href="#">maddalena.prandini@studio.unibo.it</a></li>
-        </ul>
-    </footer>
+    <h3 class="h6 fw-bold">Contatti</h3>
+    <p class="mb-1">Contattaci alle nostre mail</p>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <ul class="list-unstyled mb-0">
+        <li>
+            <a class="text-white text-decoration-none"
+               href="mailto:elena.fucci3@studio.unibo.it">
+                elena.fucci3@studio.unibo.it
+            </a>
+        </li>
+        <li>
+            <a class="text-white text-decoration-none"
+               href="mailto:leonardo.damario@studio.unibo.it">
+                leonardo.damario@studio.unibo.it
+            </a>
+        </li>
+        <li>
+            <a class="text-white text-decoration-none"
+               href="mailto:maddalena.prandini@studio.unibo.it">
+                maddalena.prandini@studio.unibo.it
+            </a>
+        </li>
+    </ul>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
