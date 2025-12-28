@@ -21,7 +21,7 @@ function getUserRole(){
 }
 
 function getDbInstance(){
-    return new DatabaseHelper("localhost", "root", "", "pdfexchangeplatform", 3306);
+    return new DatabaseHelper("localhost", "root", "", "pdfexchangeplatform", 3307);
 }
 
 function uploadPdf($path, $file){
