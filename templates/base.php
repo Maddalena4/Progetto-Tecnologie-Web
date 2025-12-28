@@ -44,31 +44,31 @@
     <?php endif; ?>
 
     <footer class="footer py-4 px-4 text-white">
-    <h3 class="h6 fw-bold">Contatti</h3>
-    <p class="mb-1">Contattaci alle nostre mail</p>
+        <h3 class="h6 fw-bold">Contatti</h3>
+        <p class="mb-1">Contattaci alle nostre mail</p>
 
-    <ul class="list-unstyled mb-0">
-        <li>
-            <a class="text-white text-decoration-none"
-               href="mailto:elena.fucci3@studio.unibo.it">
-                elena.fucci3@studio.unibo.it
-            </a>
-        </li>
-        <li>
-            <a class="text-white text-decoration-none"
-               href="mailto:leonardo.damario@studio.unibo.it">
-                leonardo.damario@studio.unibo.it
-            </a>
-        </li>
-        <li>
-            <a class="text-white text-decoration-none"
-               href="mailto:maddalena.prandini@studio.unibo.it">
-                maddalena.prandini@studio.unibo.it
-            </a>
-        </li>
-    </ul>
-</footer>
+        <ul class="list-unstyled mb-0">
+            <li>
+                <a class="text-white text-decoration-none"
+                href="mailto:elena.fucci3@studio.unibo.it">
+                    elena.fucci3@studio.unibo.it
+                </a>
+            </li>
+            <li>
+                <a class="text-white text-decoration-none"
+                href="mailto:leonardo.damario@studio.unibo.it">
+                    leonardo.damario@studio.unibo.it
+                </a>
+            </li>
+            <li>
+                <a class="text-white text-decoration-none"
+                href="mailto:maddalena.prandini@studio.unibo.it">
+                    maddalena.prandini@studio.unibo.it
+                </a>
+            </li>
+        </ul>
+    </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

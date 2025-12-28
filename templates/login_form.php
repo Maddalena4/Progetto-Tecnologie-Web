@@ -12,13 +12,13 @@
         <form method="POST">
 
             <div class="mb-3 text-start">
-                <label class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" required>
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-control" required/>
             </div>
 
             <div class="mb-3 text-start">
-                <label class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" required>
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-control" required/>
             </div>
 
             <button type="submit" class="btn btn-lg w-100 gradient-btn">
