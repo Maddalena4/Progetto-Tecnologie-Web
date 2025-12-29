@@ -24,7 +24,7 @@ require_once 'utils/functions.php';
                 data-bs-toggle="offcanvas"
                 data-bs-target="#sidebar"
                 aria-controls="sidebar">
-            <i class="bi bi-list"></i>
+            <span class="bi bi-list" aria-hidden="true"></span>
         </button>
         <span class="fw-bold ms-2 text-white">Università di Bologna</span>
     </nav>

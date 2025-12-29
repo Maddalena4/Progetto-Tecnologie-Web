@@ -4,7 +4,7 @@
     <?php foreach($templateParams['facolta'] as $fac): ?>
         <div class="col-6 col-md-7">
             <a href="admin.php?action=corsi&idfacolta=<?php echo $fac['idfacolta']; ?>" class="scelta d-block text-start text-decoration-none text-dark">
-                <i class="bi bi-flower1 me-2"></i> <?php echo $fac['nome']; ?>
+                <span class="bi bi-flower1 me-2" aria-hidden="true"></span> <?php echo $fac['nome']; ?>
             </a>
         </div>
         <div class="col-3 col-md-2 text-center">
@@ -12,7 +12,7 @@
         </div>
         <div class="col-3 col-md-3 text-end">
             <button type="button" class="btn btn-danger btn-sm" style="background-color: #00274D;">
-                <i class="bi bi-trash-fill"></i>
+                <span class="bi bi-trash-fill" aria-hidden="true"></span>
             </button>
         </div>
         <hr>
