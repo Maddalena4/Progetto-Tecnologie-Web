@@ -2,19 +2,21 @@
 
 <div class="dropdown mb-4">
     <button class="btn btn-navy dropdown-toggle" data-bs-toggle="dropdown">
-        <?php echo $templateParams['anno']; ?>° anno
+        Seleziona Facoltà
     </button>
+
     <ul class="dropdown-menu">
-        <?php for ($i = 1; $i <= 3; $i++): ?>
+        <?php foreach ($templateParams["lista_facolta"] as $facolta): ?>
             <li>
                 <a class="dropdown-item"
-                   href="admin.php?action=corsi&idfacolta=<?php echo $templateParams['idfacolta']; ?>&anno=<?php echo $i; ?>">
-                    <?php echo $i; ?>° anno
+                   href="admin.php?action=corsi&idfacolta=<?= $facolta['idfacolta']; ?>">
+                    <?= htmlspecialchars($facolta['nome']); ?>
                 </a>
             </li>
-        <?php endfor; ?>
+        <?php endforeach; ?>
     </ul>
 </div>
+
 
 <div class="row gy-3 align-items-center">
 <?php foreach ($templateParams['corsi'] as $corso): ?>
@@ -24,7 +26,7 @@
     </div>
 
     <div class="col-3 col-md-2 text-center">
-        <strong><?php echo $corso['codice']; ?></strong>
+        <strong><?php echo $corso['idcorso']; ?></strong>
     </div>
 
     <div class="col-3 col-md-3 text-end">

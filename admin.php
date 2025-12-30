@@ -42,20 +42,23 @@ switch($action){
         break; 
 
     case 'corsi':
-        if (!isset($_GET['idfacolta']) || !is_numeric($_GET['idfacolta'])) {
-            header("Location: admin.php?action=facolta");
-            exit;
-        }
 
+    if (isset($_GET['idfacolta']) && is_numeric($_GET['idfacolta'])) {
         $idFacolta = intval($_GET['idfacolta']);
-        $anno = $_GET['anno'] ?? 1;
+        $corsi = $dbh->getCorsiByFacolta($idFacolta);
+    } else {
+        $corsi = $dbh->getAllCorsi();
+        $idFacolta = null;
+    }
 
-        $templateParams["titolo"] = "Admin - Corsi";
-        $templateParams["nome"] = "templates/admin_corsi.php";
-        $templateParams["corsi"] = $dbh->getCorsiByFacoltaAnno($idFacolta, $anno);
-        $templateParams["idfacolta"] = $idFacolta;
-        $templateParams["anno"] = $anno;
-        break;
+    $templateParams["titolo"] = "Admin - Corsi";
+    $templateParams["nome"] = "templates/admin_corsi.php";
+    $templateParams["lista_facolta"] = $dbh->getAllFacolta();
+    $templateParams["corsi"] = $corsi;
+    $templateParams["idfacolta"] = $idFacolta;
+    break;
+
+
 
     case 'crea_corso':
         $templateParams["titolo"] = "Admin - Crea Corso";
