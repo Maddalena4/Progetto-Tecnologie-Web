@@ -30,8 +30,6 @@ class DatabaseHelper{
     return false;
 }
 
-
-
     // Registrazione
    public function registerUser($email, $password) {
 
@@ -96,5 +94,10 @@ class DatabaseHelper{
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function deleteFacolta($idFacolta){
+        $stmt = $this->db->prepare("DELETE FROM facolta WHERE idfacolta = ?");
+        $stmt->bind_param("i", $idFacolta);
+        return $stmt->execute();
+    }
 }
 ?>
