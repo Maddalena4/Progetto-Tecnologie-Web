@@ -1,16 +1,9 @@
 <?php
-require_once 'db/database.php';
-require_once 'utils/functions.php'; 
-
-session_start();
-
-$errorMsg = "";
+require_once 'bootstrap.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $db = getDbInstance();
-
-    $loginResult = $db->loginUser($_POST['email'], $_POST['password']);
+    $loginResult = $dbh->loginUser($_POST['email'], $_POST['password']);
 
     if ($loginResult) {
         registerLoggedUser($loginResult);

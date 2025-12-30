@@ -1,8 +1,5 @@
 <?php
-require_once 'db/database.php';
-require_once 'utils/functions.php';
-
-session_start();
+require_once 'bootstrap.php';
 
 $errore = "";
 
@@ -15,8 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($password !== $repeat) {
         $errore = "Le password non coincidono";
     } else {
-        $db = getDbInstance();
-        $msg = $db->registerUser($email, $password);
+        $msg = $dbh->registerUser($email, $password);
 
         if ($msg === "Registrazione completata") {
             header("Location: login.php");

@@ -1,8 +1,5 @@
 <?php
-require_once 'db/database.php';
-require_once 'utils/functions.php';
-
-session_start();
+require_once 'bootstrap.php';
 
 $templateParams["titolo"] = "Pdf Exchange Platform - Home";
 $templateParams["nome"] = "templates/home_main.php";

@@ -20,10 +20,6 @@ function getUserRole(){
     return !empty($_SESSION['role']) ? $_SESSION['role'] : null;
 }
 
-function getDbInstance(){
-    return new DatabaseHelper("localhost", "root", "", "pdfexchangeplatform", 3307);
-}
-
 function uploadPdf($path, $file){
     $fileName = basename($file["name"]);
     $fullPath = $path.$fileName;

@@ -1,9 +1,6 @@
 <?php
 
-require_once 'db/database.php';
-require_once 'utils/functions.php';
-
-session_start();
+require_once 'bootstrap.php';
 
 // Controllo sicurezza: Verifica login e ruolo
 if(!isUserLoggedIn() || getUserRole() !== 'admin'){
@@ -11,7 +8,6 @@ if(!isUserLoggedIn() || getUserRole() !== 'admin'){
     exit;
 }
 
-$db = getDbInstance();
 $action = $_GET['action'] ?? 'home';
 
 $templateParams["css_file"] = "style.css"; 
@@ -21,7 +17,7 @@ switch($action){
     case 'facolta':
         $templateParams["titolo"] = "Admin - Facoltà";
         $templateParams["nome"] = "templates/admin_facolta.php";
-        $templateParams["facolta"] = $db->getAllFacolta();
+        $templateParams["facolta"] = $dbh->getAllFacolta();
         break;
 
     case 'corsi':
@@ -33,7 +29,7 @@ switch($action){
     default:
         $templateParams["titolo"] = "Admin - Dashboard";
         $templateParams["nome"] = "templates/admin_home.php";
-        $templateParams["stats"] = $db->getDashboardStats();
+        $templateParams["stats"] = $dbh->getDashboardStats();
         break;
 }
 

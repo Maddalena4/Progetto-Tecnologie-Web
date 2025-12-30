@@ -1,16 +1,13 @@
 <?php
-require_once 'utils/functions.php';
-require_once 'db/database.php';
+require_once 'bootstrap.php';
 
-session_start();
 
 if (!isUserLoggedIn()) {
     header("Location: login.php");
     exit;
 }
 
-$db = getDbInstance();
-$facolta_list = $db->getAllFacolta(); 
+$facolta_list = $dbh->getAllFacolta(); 
 
 $userEmail = $_SESSION['email'];
 
