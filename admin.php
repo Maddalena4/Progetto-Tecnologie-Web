@@ -2,7 +2,6 @@
 
 require_once 'bootstrap.php';
 
-// Controllo sicurezza: Verifica login e ruolo
 if(!isUserLoggedIn() || getUserRole() !== 'admin'){
     header("Location: registrazione.php");
     exit;
@@ -21,7 +20,6 @@ switch($action){
         break;
 
     case 'home':
-    default:
         $templateParams["titolo"] = "Admin - Dashboard";
         $templateParams["nome"] = "templates/admin_home.php";
         $templateParams["stats"] = $dbh->getDashboardStats();
@@ -33,31 +31,31 @@ switch($action){
         break;
 
     case 'modifica_facolta':
-    if (!isset($_GET['idfacolta']) || !is_numeric($_GET['idfacolta'])) {
-        header("Location: admin.php?action=facolta&error=invalid");
-        exit;
-    }
-    $idFacolta = intval($_GET['idfacolta']);
-    $templateParams["titolo"] = "Admin - Modifica Facoltà";
-    $templateParams["nome"] = "templates/admin_modifica_facolta.php";
-    $templateParams["facolta"] = $dbh->getFacoltaById($idFacolta);
-    break;
+        if (!isset($_GET['idfacolta']) || !is_numeric($_GET['idfacolta'])) {
+            header("Location: admin.php?action=facolta&error=invalid");
+            exit;
+        }
+        $idFacolta = intval($_GET['idfacolta']);
+        $templateParams["titolo"] = "Admin - Modifica Facoltà";
+        $templateParams["nome"] = "templates/admin_modifica_facolta.php";
+        $templateParams["facolta"] = $dbh->getFacoltaById($idFacolta);
+        break; 
 
     case 'corsi':
-    if (!isset($_GET['idfacolta']) || !is_numeric($_GET['idfacolta'])) {
-        header("Location: admin.php?action=facolta");
-        exit;
-    }
+        if (!isset($_GET['idfacolta']) || !is_numeric($_GET['idfacolta'])) {
+            header("Location: admin.php?action=facolta");
+            exit;
+        }
 
-    $idFacolta = intval($_GET['idfacolta']);
-    $anno = $_GET['anno'] ?? 1;
+        $idFacolta = intval($_GET['idfacolta']);
+        $anno = $_GET['anno'] ?? 1;
 
-    $templateParams["titolo"] = "Admin - Corsi";
-    $templateParams["nome"] = "templates/admin_corsi.php";
-    $templateParams["corsi"] = $dbh->getCorsiByFacoltaAnno($idFacolta, $anno);
-    $templateParams["idfacolta"] = $idFacolta;
-    $templateParams["anno"] = $anno;
-    break;
+        $templateParams["titolo"] = "Admin - Corsi";
+        $templateParams["nome"] = "templates/admin_corsi.php";
+        $templateParams["corsi"] = $dbh->getCorsiByFacoltaAnno($idFacolta, $anno);
+        $templateParams["idfacolta"] = $idFacolta;
+        $templateParams["anno"] = $anno;
+        break;
 
     case 'crea_corso':
         $templateParams["titolo"] = "Admin - Crea Corso";
@@ -70,8 +68,8 @@ switch($action){
         $templateParams["nome"] = "templates/admin_modifica_corso.php";
         $templateParams["corso"] = $dbh->getCorsoById($_GET['idcorso']);
         break;
-
 }
+
 
 require 'templates/base.php';
 ?>
