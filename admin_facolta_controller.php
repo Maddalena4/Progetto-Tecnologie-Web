@@ -1,8 +1,7 @@
 <?php 
 session_start();
 
-require_once "database.php";
-require_once "utils/functions.php";
+require_once "bootstrap.php";
 
 //Controllo login
 if(!isUserLoggedIn()) {
@@ -14,6 +13,21 @@ if(getUserRole() !== 'admin') {
     exit;
 }
 
+//controllo pararmetro
+if (!isset($_POST['idfacolta']) || !is_numeric($_POST['idfacolta'])) {
+    header("Location: admin.php?action=facolta&error=invalid");
+    exit;
+}
 
+$idFacolta = intval($_POST['idfacolta']);
 
->
+//eliminazione facoltà
+if ($dbh->deleteFacolta($idFacolta)) {
+    header("Location: admin.php?action=facolta&success=deleted");
+} else {
+    header("Location: admin.php?action=facolta&error=delete_failed");
+}
+
+exit;
+
+?>
