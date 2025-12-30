@@ -1,10 +1,22 @@
-<form action="admin_facolta_controller.php">
-    <input type="text" name="nome_facolta" id="Nome Facoltà">Nomre Facoltà: </input>
-    <label for="scelta_anno">Scegli un'opzione: </label>
-    <select name="scelta_anno" id="scelta_anno">
-        <option value="">--Seleziona--</option>
-        <option value="triennale">triennale</option>
-        <option value="magistrale">magistrale</option>
-    </select>
-    <input type="submit" name="submit">Crea Facoltà</input>
+<form action="admin_facolta_controller.php" method="POST">
+    
+    <div class="mb-3">
+        <label for="nome_facolta">Nome Facoltà</label>
+        <input type="text" name="nome_facolta" id="nome_facolta" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="tipologia">Tipologia</label>
+        <select name="tipologia" id="tipologia" required>
+            <option value="">--Seleziona--</option>
+            <option value="triennale">Triennale</option>
+            <option value="magistrale">Magistrale</option>
+        </select>
+    </div>
+
+    <input type="hidden" name="action" value="create">
+
+    <button type="submit" class="btn btn-primary">
+        Crea Facoltà
+    </button>
 </form>
