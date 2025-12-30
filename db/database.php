@@ -101,11 +101,17 @@ class DatabaseHelper{
     }
 
     public function addFacolta($nomeFacolta, $tipologia) {
-    $stmt = $this->db->prepare(
-        "INSERT INTO facolta (nome, tipologia) VALUES (?, ?)"
-    );
-    $stmt->bind_param("ss", $nomeFacolta, $tipologia);
-    return $stmt->execute();
+        $stmt = $this->db->prepare(
+            "INSERT INTO facolta (nome, tipologia) VALUES (?, ?)"
+        );
+        $stmt->bind_param("ss", $nomeFacolta, $tipologia);
+        return $stmt->execute();
+    }
+
+    public function updateFacolta($idFacolta, $nuovoNome, $nuovaTipologia) {
+        $stmt = $this->db->prepare("UPDATE facolta SET nome = ?, tipologia = ? WHERE idfacolta = ?");        
+        $stmt->bind_param("ssi", $nuovoNome, $nuovaTipologia, $idFacolta);
+        return $stmt->execute();
     }
 
 }
