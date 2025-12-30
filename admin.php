@@ -37,6 +37,11 @@ switch($action){
         header("Location: admin.php?action=facolta&error=invalid");
         exit;
     }
+    $idFacolta = intval($_GET['idfacolta']);
+    $templateParams["titolo"] = "Admin - Modifica Facoltà";
+    $templateParams["nome"] = "templates/admin_modifica_facolta.php";
+    $templateParams["facolta"] = $dbh->getFacoltaById($idFacolta);
+    break;
 
     case 'corsi':
     if (!isset($_GET['idfacolta']) || !is_numeric($_GET['idfacolta'])) {
@@ -66,12 +71,6 @@ switch($action){
         $templateParams["corso"] = $dbh->getCorsoById($_GET['idcorso']);
         break;
 
-
-    $idFacolta = intval($_GET['idfacolta']);
-    $templateParams["titolo"] = "Admin - Modifica Facoltà";
-    $templateParams["nome"] = "templates/admin_modifica_facolta.php";
-    $templateParams["facolta"] = $dbh->getFacoltaById($idFacolta);
-    break;
 }
 
 require 'templates/base.php';
