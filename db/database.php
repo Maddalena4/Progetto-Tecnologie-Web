@@ -100,6 +100,10 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
-    
+    public function addFacolta($nomeFacolta, $tipologia) {
+        $stmt = $this->db->prepare("INSERT INTO facolta (nome,tipolgia) VALUES (?,?)");
+        $stmt->bind_param("ii", $idFacolta, $tipologia);
+        return $stmt->execute();
+    }
 }
 ?>
