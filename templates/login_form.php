@@ -1,7 +1,8 @@
-<div class="row justify-content-center">
-    <div class="col-md-6 bg-white p-5 rounded shadow">
+<div class="d-flex justify-content-center align-items-center min-vh-100 px-3">
 
-        <h2 class="text-center mb-4" style="color: #00274D;">Accedi</h2>
+    <div class="card form-card p-4 p-md-5">
+
+        <h2 class="h1 text-center fw-bold mb-4">Accedi</h2>
 
         <?php if (!empty($templateParams["errore_login"])): ?>
             <div class="alert alert-danger">
@@ -11,20 +12,39 @@
 
         <form method="POST">
 
-            <div class="mb-3 text-start">
-                <label class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" required>
+            <!-- EMAIL -->
+            <div class="mb-3">
+                <label for="email" class="visually-hidden">Email</label>
+                <input type="email"
+                       id="email"
+                       name="email"
+                       class="form-control form-control-lg"
+                       placeholder="Your Email"
+                       required>
             </div>
 
-            <div class="mb-3 text-start">
-                <label class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" required>
+            <!-- PASSWORD -->
+            <div class="mb-4">
+                <label for="password" class="visually-hidden">Password</label>
+                <input type="password"
+                       id="password"
+                       name="password"
+                       class="form-control form-control-lg"
+                       placeholder="Password"
+                       required>
             </div>
 
             <button type="submit" class="btn btn-lg w-100 gradient-btn">
                 ACCEDI
             </button>
+
         </form>
 
+        <div class="text-center mt-4">
+            Non hai un account?
+            <a href="registrazione.php" class="fw-bold">Registrati</a>
+        </div>
+
     </div>
+
 </div>

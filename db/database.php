@@ -12,23 +12,24 @@ class DatabaseHelper{
     // Login
    public function loginUser($email, $password) {
     $stmt = $this->db->prepare(
-        "SELECT iduser, password, role FROM user WHERE email = ?"
+        "SELECT iduser, email, password, role FROM user WHERE email = ?"
     );
     $stmt->bind_param('s', $email);
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
 
-    // confronto diretto (NO hash)
     if ($user && $password === $user['password']) {
         return [
             'iduser' => $user['iduser'],
+            'email'  => $user['email'],
             'role'   => $user['role']
         ];
     }
 
     return false;
 }
+
 
 
     // Registrazione
@@ -87,5 +88,6 @@ class DatabaseHelper{
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
+
 }
 ?>

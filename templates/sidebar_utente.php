@@ -1,0 +1,46 @@
+<ul class="nav flex-column gap-3">
+
+    <li class="nav-item">
+        <div class="sidebar-link nav-link d-flex align-items-center text-white">
+            <span class="bi bi-person-circle me-2" aria-hidden="true"></span>
+            <span><?= htmlspecialchars($userEmail); ?></span>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="sidebar-link nav-link" href="home_user.php">
+            <span class="bi bi-house-fill me-2"aria-hidden="true"></span>Home
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="sidebar-link nav-link" href="#">
+            <span class="bi bi-upload me-2"aria-hidden="true"></span>Upload
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="sidebar-link nav-link" href="#">
+            <span class="bi bi-download me-2"aria-hidden="true"></span>Download
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="sidebar-link nav-link" href="#">
+            <span class="bi bi-book-half me-2"aria-hidden="true"></span>Libreria
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="sidebar-link nav-link" href="#">
+            <span class="bi bi-folder2-open me-2"aria-hidden="true"></span>Scaricati
+        </a>
+    </li>
+
+    <li class="nav-item mt-5">
+        <a class="sidebar-link nav-link text-white" href="index.php?logout=1">
+            <span class="bi bi-box-arrow-left me-2"aria-hidden="true"></span>Esci
+        </a>
+    </li>
+
+</ul>
