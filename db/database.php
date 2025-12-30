@@ -99,5 +99,7 @@ class DatabaseHelper{
         $stmt->bind_param("i", $idFacolta);
         return $stmt->execute();
     }
+
+    
 }
 ?>

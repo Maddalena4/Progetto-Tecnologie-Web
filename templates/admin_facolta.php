@@ -23,7 +23,7 @@
                 Modifica
             </a>
 
-            <form action="delete_facolta.php" method="POST" class="d-inline">
+            <form action="admin_facolta_controller.php" method="POST" class="d-inline">
                 <input type="hidden" name="idfacolta" value="<?php echo $fac['idfacolta']; ?>">
                 <button type="submit"
                         class="btn btn-sm text-white"
