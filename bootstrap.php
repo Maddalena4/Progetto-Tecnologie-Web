@@ -11,6 +11,6 @@ $dbh = new DatabaseHelper(
     "root",
     "",
     "pdfexchangeplatform",
-    3307
+    3306
 );
 ?>
