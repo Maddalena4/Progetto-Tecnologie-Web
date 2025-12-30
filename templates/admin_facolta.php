@@ -24,14 +24,16 @@
             </a>
 
             <form action="admin_facolta_controller.php" method="POST" class="d-inline">
+                <input type="hidden" name="action" value="delete">
                 <input type="hidden" name="idfacolta" value="<?php echo $fac['idfacolta']; ?>">
                 <button type="submit"
                         class="btn btn-sm text-white"
                         style="background-color: #00274D;"
                         onclick="return confirm('Eliminare questa facoltà e tutti i corsi associati?');">
-                    <span class="bi bi-trash-fill" aria-hidden="true"></span>
+                    <span class="bi bi-trash-fill"></span>
                 </button>
             </form>
+
 
         </div>
 
