@@ -31,6 +31,11 @@ switch($action){
         $templateParams["nome"] = "templates/admin_home.php";
         $templateParams["stats"] = $dbh->getDashboardStats();
         break;
+
+    case 'crea_facolta':
+        $templateParams["titolo"] = "Admin - Crea Facoltà";
+        $templateParams["nome"] = "templates/crea_facolta.php";
+        break;
 }
 
 require 'templates/base.php';
