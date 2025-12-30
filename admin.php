@@ -36,6 +36,18 @@ switch($action){
         $templateParams["titolo"] = "Admin - Crea Facoltà";
         $templateParams["nome"] = "templates/crea_facolta.php";
         break;
+
+    case 'modifica_facolta':
+    if (!isset($_GET['idfacolta']) || !is_numeric($_GET['idfacolta'])) {
+        header("Location: admin.php?action=facolta&error=invalid");
+        exit;
+    }
+
+    $idFacolta = intval($_GET['idfacolta']);
+    $templateParams["titolo"] = "Admin - Modifica Facoltà";
+    $templateParams["nome"] = "templates/admin_modifica_facolta.php";
+    $templateParams["facolta"] = $dbh->getFacoltaById($idFacolta);
+    break;
 }
 
 require 'templates/base.php';

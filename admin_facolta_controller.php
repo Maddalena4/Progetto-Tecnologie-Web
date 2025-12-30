@@ -39,6 +39,29 @@ if (isset($_POST['idfacolta']) && is_numeric($_POST['idfacolta'])) {
     }
     exit;
 }
+// Modifica Facoltà
+if (isset($_POST['action']) && $_POST['action'] === 'update') {
+
+    if (
+        empty($_POST['idfacolta']) ||
+        empty($_POST['nome_facolta']) ||
+        empty($_POST['tipologia'])
+    ) {
+        header("Location: admin.php?action=facolta&error=missing");
+        exit;
+    }
+
+    $idFacolta = intval($_POST['idfacolta']);
+    $nome = $_POST['nome_facolta'];
+    $tipologia = $_POST['tipologia'];
+
+    if ($dbh->updateFacolta($idFacolta, $nome, $tipologia)) {
+        header("Location: admin.php?action=facolta&success=updated");
+    } else {
+        header("Location: admin.php?action=modifica_facolta&idfacolta=$idFacolta&error=db");
+    }
+    exit;
+}
 
 // Se nessuna azione valida è stata eseguita, reindirizza alla pagina delle facoltà
 header("Location: admin.php?action=facolta&error=invalid_action");
