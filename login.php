@@ -1,6 +1,9 @@
 <?php
 require_once 'bootstrap.php';
 
+
+$errorMsg = "";
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $loginResult = $dbh->loginUser($_POST['email'], $_POST['password']);

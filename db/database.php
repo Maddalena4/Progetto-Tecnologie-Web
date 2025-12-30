@@ -80,6 +80,13 @@ class DatabaseHelper{
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getFacoltaById($idFacolta){
+        $stmt = $this->db->prepare("SELECT * FROM facolta WHERE idfacolta = ?");
+        $stmt->bind_param("i", $idFacolta);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
     
     // Admin: Corsi per facoltà e anno
     public function getCorsiByFacoltaAnno($idFacolta, $anno) {

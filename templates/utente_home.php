@@ -1,10 +1,10 @@
-
 <h2 class="fw-bold mb-4">Università di Bologna</h2>
 <div class="row gy-3">
 <?php if (!empty($facolta_list)): ?>
     <?php foreach ($facolta_list as $f): ?>
         <div class="col-6 col-md-7">
-            <a href="#" class="scelta d-block text-start text-decoration-none">
+            <a href="corsi.php?idFacolta=<?= urlencode($f['idfacolta']); ?>" 
+               class="scelta d-block text-start text-decoration-none">
                 <span class="bi bi-flower1 me-2" aria-hidden="true"></span>
                 <?= htmlspecialchars($f['nome']); ?>
             </a>
