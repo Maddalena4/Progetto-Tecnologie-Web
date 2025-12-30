@@ -113,6 +113,36 @@ class DatabaseHelper{
         $stmt->bind_param("ssi", $nuovoNome, $nuovaTipologia, $idFacolta);
         return $stmt->execute();
     }
+    public function getCorsoById($id) {
+    $stmt = $this->db->prepare("SELECT * FROM corso WHERE idcorso = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_assoc();
+    }
+
+    public function addCorso($nome, $codice, $anno, $idfacolta) {
+        $stmt = $this->db->prepare(
+            "INSERT INTO corso (nome, codice, anno, idfacolta)
+            VALUES (?, ?, ?, ?)"
+        );
+        $stmt->bind_param("ssii", $nome, $codice, $anno, $idfacolta);
+        return $stmt->execute();
+    }
+
+    public function updateCorso($id, $nome, $codice, $anno) {
+        $stmt = $this->db->prepare(
+            "UPDATE corso SET nome=?, codice=?, anno=? WHERE idcorso=?"
+        );
+        $stmt->bind_param("ssii", $nome, $codice, $anno, $id);
+        return $stmt->execute();
+    }
+
+    public function deleteCorso($id) {
+        $stmt = $this->db->prepare("DELETE FROM corso WHERE idcorso=?");
+        $stmt->bind_param("i", $id);
+        return $stmt->execute();
+    }
+
 
 }
 ?>
