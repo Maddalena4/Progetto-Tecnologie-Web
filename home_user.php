@@ -18,3 +18,4 @@ $templateParams["usa_sidebar"] = true;
 $templateParams["show_welcome"] = true;
 
 require 'templates/base.php';
+?>
