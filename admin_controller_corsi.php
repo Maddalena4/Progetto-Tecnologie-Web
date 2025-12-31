@@ -12,7 +12,6 @@ $action = $_POST['action'] ?? null;
 if ($action === 'create') {
     $dbh->addCorso(
         $_POST['nome'],
-        $_POST['codice'],
         $_POST['anno'],
         $_POST['idfacolta']
     );
@@ -24,7 +23,6 @@ if ($action === 'update') {
     $dbh->updateCorso(
         $_POST['idcorso'],
         $_POST['nome'],
-        $_POST['codice'],
         $_POST['anno']
     );
     header("Location: admin.php?action=facolta");
@@ -32,7 +30,14 @@ if ($action === 'update') {
 }
 
 if ($action === 'delete') {
-    $dbh->deleteCorso($_POST['idcorso']);
-    header("Location: ".$_SERVER['HTTP_REFERER']);
+    if (!isset($_POST['idcorso']) || !is_numeric($_POST['idcorso'])) {
+        header("Location: admin.php?action=corsi&error=invalid");
+        exit;
+    }
+    if ($dbh->deleteCorso(intval($_POST['idcorso']))) {
+        header("Location: admin.php?action=corsi&success=deleted");
+    } else {
+        header("Location: admin.php?action=corsi&error=delete_failed");
+    }
     exit;
 }

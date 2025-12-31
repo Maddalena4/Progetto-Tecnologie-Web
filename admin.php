@@ -46,9 +46,13 @@ switch($action){
     if (isset($_GET['idfacolta']) && is_numeric($_GET['idfacolta'])) {
         $idFacolta = intval($_GET['idfacolta']);
         $corsi = $dbh->getCorsiByFacolta($idFacolta);
+
+        $templateParams['facolta_selezionata'] =
+            $dbh->getFacoltaById($idFacolta);
     } else {
         $corsi = $dbh->getAllCorsi();
         $idFacolta = null;
+        $templateParams['facolta_selezionata'] = null;
     }
 
     $templateParams["titolo"] = "Admin - Corsi";
@@ -60,16 +64,30 @@ switch($action){
 
 
 
+
     case 'crea_corso':
         $templateParams["titolo"] = "Admin - Crea Corso";
         $templateParams["nome"] = "templates/admin_crea_corso.php";
         $templateParams["idfacolta"] = $_GET['idfacolta'];
+        $templateParams["lista_facolta"] = $dbh->getAllFacolta();
+
+        if (isset($_GET['idfacolta'])) {
+            $templateParams['facolta'] = $dbh->getFacoltaById($_GET['idfacolta']);
+            $templateParams['idfacolta'] = $_GET['idfacolta'];  
+        }
+
         break;
 
     case 'modifica_corso':
+        if (isset($_GET['idcorso']) && is_numeric($_GET['idcorso'])) {
+            $idCorso = intval($_GET['idcorso']);
+
+            $templateParams['corso'] = $dbh->getCorsoById($idCorso);
+            $templateParams['facolta'] =
+                $dbh->getFacoltaById($templateParams['corso']['idfacolta']);
+        }
         $templateParams["titolo"] = "Admin - Modifica Corso";
         $templateParams["nome"] = "templates/admin_modifica_corso.php";
-        $templateParams["corso"] = $dbh->getCorsoById($_GET['idcorso']);
         break;
 }
 

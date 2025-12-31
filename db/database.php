@@ -136,20 +136,20 @@ class DatabaseHelper{
     return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function addCorso($nome, $codice, $anno, $idfacolta) {
+    public function addCorso($nome, $anno, $idfacolta) {
         $stmt = $this->db->prepare(
-            "INSERT INTO corso (nome, codice, anno, idfacolta)
-            VALUES (?, ?, ?, ?)"
+            "INSERT INTO corso (nome, anno, idfacolta)
+            VALUES (?, ?, ?)"
         );
-        $stmt->bind_param("ssii", $nome, $codice, $anno, $idfacolta);
+        $stmt->bind_param("sii", $nome, $anno, $idfacolta);
         return $stmt->execute();
     }
 
-    public function updateCorso($id, $nome, $codice, $anno) {
+    public function updateCorso($id, $nome, $anno) {
         $stmt = $this->db->prepare(
-            "UPDATE corso SET nome=?, codice=?, anno=? WHERE idcorso=?"
+            "UPDATE corso SET nome=?, anno=? WHERE idcorso=?"
         );
-        $stmt->bind_param("ssii", $nome, $codice, $anno, $id);
+        $stmt->bind_param("sii", $nome, $anno, $id);
         return $stmt->execute();
     }
 
