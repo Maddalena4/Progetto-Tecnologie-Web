@@ -11,18 +11,19 @@
     </div>
 
     <div class="mb-3">
-        <label for="tipologia" class="form-label fw-semibold">Tipologia</label>
-        <select name="tipologia" id="tipologia" class="form-select" required>
-            <option value="" disabled>-- Seleziona --</option>
-            <option value="triennale"
-                <?= ($templateParams['facolta']['tipologia'] === 'triennale') ? 'selected' : ''; ?>>
-                Triennale
-            </option>
-            <option value="magistrale"
-                <?= ($templateParams['facolta']['tipologia'] === 'magistrale') ? 'selected' : ''; ?>>
-                Magistrale
-            </option>
-        </select>
+        <label class="form-label fw-semibold d-block">Tipologia</label>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="tipologia" id="tip_triennale" value="triennale"
+                <?= ($templateParams['facolta']['tipologia'] === 'triennale') ? 'checked' : ''; ?> required>
+            <label class="form-check-label" for="tip_triennale">Triennale</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="tipologia" id="tip_magistrale" value="magistrale"
+                <?= ($templateParams['facolta']['tipologia'] === 'magistrale') ? 'checked' : ''; ?> required>
+            <label class="form-check-label" for="tip_magistrale">Magistrale</label>
+        </div>
     </div>
 
     <input type="hidden" name="action" value="update">

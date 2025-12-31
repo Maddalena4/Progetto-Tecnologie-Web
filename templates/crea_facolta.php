@@ -6,12 +6,21 @@
     </div>
 
     <div class="mb-3">
-        <label for="tipologia" class="form-label fw-semibold">Tipologia</label>
-        <select name="tipologia" id="tipologia" class="form-select" required>
-            <option value="" selected disabled>-- Seleziona --</option>
-            <option value="triennale">Triennale</option>
-            <option value="magistrale">Magistrale</option>
-        </select>
+        <label class="form-label fw-semibold">Tipologia</label>
+        
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="tipologia" id="tipo_triennale" value="triennale" required>
+            <label class="form-check-label" for="tipo_triennale">
+                Triennale
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="tipologia" id="tipo_magistrale" value="magistrale" required>
+            <label class="form-check-label" for="tipo_magistrale">
+                Magistrale
+            </label>
+        </div>
     </div>
 
     <input type="hidden" name="action" value="create">
@@ -23,4 +32,3 @@
     </div>
 
 </form>
-
