@@ -1,86 +1,29 @@
-<h2 class="fw-bold mb-5">Analisi</h2>
+<h2 class="fw-bold mb-5">
+    <?= htmlspecialchars($templateParams["corso"]["nome"]) ?>
+</h2>
 
-<div class="row row-cols-3 g-4 ">
+<div class="row row-cols-3 g-4">
+
+<?php if (count($templateParams["pdfs"]) === 0): ?>
+    <p>Nessun PDF disponibile per questo corso</p>
+<?php endif; ?>
+
+<?php foreach ($templateParams["pdfs"] as $pdf): ?>
     <div class="col">
-        <a href="#" class="file-item text-decoration-none text-dark">
-            <div class="file-icon-placeholder">
-                <i class="bi bi-file-earmark-pdf-fill"></i>
+        <a href="<?= htmlspecialchars($pdf["path"]) ?>"
+           target="_blank"
+           class="file-item text-decoration-none text-dark">
+
+            <div class="file-icon-placeholder text-center p-4 border rounded">
+                <i class="bi bi-file-earmark-pdf-fill fs-1"></i>
+                <div class="mt-2 text-truncate">
+                    <?= htmlspecialchars($pdf["nomefile"]) ?>
+                </div>
             </div>
-            <span class="text-truncate">Nome.pdf</span>
-        </a>
-                <!-- ⭐ SISTEMA DI VALUTAZIONE -->
-        <div class="rating">
-            <i class="bi bi-star-fill star"></i>
-            <i class="bi bi-star-fill star"></i>
-            <i class="bi bi-star-fill star"></i>
-            <i class="bi bi-star-fill star"></i>
-            <i class="bi bi-star-fill star"></i>
-        </div>
-    </div>
-    <div class="col">
-        <a href="#" class="file-item text-decoration-none text-dark">
-            <div class="file-icon-placeholder">
-                <i class="bi bi-file-earmark-pdf-fill"></i>
-            </div>
-            <span class="text-truncate">Nome.pdf</span>
         </a>
     </div>
-    <div class="col">
-        <a href="#" class="file-item text-decoration-none text-dark">
-            <div class="file-icon-placeholder">
-                <i class="bi bi-file-earmark-pdf-fill"></i>
-            </div>
-            <span class="text-truncate">Nome.pdf</span>
-        </a>
-    </div>
-    <div class="col">
-        <a href="#" class="file-item text-decoration-none text-dark">
-            <div class="file-icon-placeholder">
-                <i class="bi bi-file-earmark-pdf-fill"></i>
-            </div>
-            <span class="text-truncate">Nome.pdf</span>
-        </a>
-    </div>
-    <div class="col">
-        <a href="#" class="file-item text-decoration-none text-dark">
-            <div class="file-icon-placeholder">
-                <i class="bi bi-file-earmark-pdf-fill"></i>
-            </div>
-            <span class="text-truncate">Nome.pdf</span>
-        </a>
-    </div>
-    <div class="col">
-        <a href="#" class="file-item text-decoration-none text-dark">
-            <div class="file-icon-placeholder">
-                <i class="bi bi-file-earmark-pdf-fill"></i>
-            </div>
-            <span class="text-truncate">Nome.pdf</span>
-        </a>
-    </div>
-    <div class="col">
-        <a href="#" class="file-item text-decoration-none text-dark">
-            <div class="file-icon-placeholder">
-                <i class="bi bi-file-earmark-pdf-fill"></i>
-            </div>
-            <span class="text-truncate">Nome.pdf</span>
-        </a>
-    </div>
-    <div class="col">
-        <a href="#" class="file-item text-decoration-none text-dark">
-            <div class="file-icon-placeholder">
-                <i class="bi bi-file-earmark-pdf-fill"></i>
-            </div>
-            <span class="text-truncate">Nome.pdf</span>
-        </a>
-    </div>
-    <div class="col">
-        <a href="#" class="file-item text-decoration-none text-dark">
-            <div class="file-icon-placeholder">
-                <i class="bi bi-file-earmark-pdf-fill"></i>
-            </div>
-            <span class="text-truncate">Nome.pdf</span>
-        </a>
-    </div>
+<?php endforeach; ?>
+
 </div>
 
 <div class="text-center mt-4 py-5">

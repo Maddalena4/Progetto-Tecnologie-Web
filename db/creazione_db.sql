@@ -27,14 +27,13 @@ CREATE TABLE corso (
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- PDF
 CREATE TABLE pdf (
     idpdf INT AUTO_INCREMENT PRIMARY KEY,
     idcorso INT NOT NULL,
     nomefile VARCHAR(255) NOT NULL,
-    contenuto LONGBLOB NOT NULL,
-    mime_type VARCHAR(50) NOT NULL DEFAULT 'application/pdf',
+    path VARCHAR(255) NOT NULL,
     upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
     FOREIGN KEY (idcorso)
         REFERENCES corso(idcorso)
         ON DELETE CASCADE

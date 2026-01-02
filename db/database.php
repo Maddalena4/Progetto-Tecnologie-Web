@@ -165,6 +165,25 @@ class DatabaseHelper{
         return $stmt->execute();        
     }
 
+    public function getPdfByCorso($idcorso) {
+        $stmt = $this->db->prepare(
+            "SELECT * FROM pdf WHERE idcorso = ?"
+        );
+        $stmt->bind_param("i", $idcorso);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
+    // Inserimento PDF
+    public function addPdf($idcorso, $nomefile, $path) {
+        $stmt = $this->db->prepare(
+            "INSERT INTO pdf (idcorso, nomefile, path)
+             VALUES (?, ?, ?)"
+        );
+        $stmt->bind_param("iss", $idcorso, $nomefile, $path);
+        return $stmt->execute();
+    }
+
 
 }
 ?>
