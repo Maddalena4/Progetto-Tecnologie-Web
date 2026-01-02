@@ -78,7 +78,7 @@ class DatabaseHelper{
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
-
+    
     public function getFacoltaById($idFacolta){
         $stmt = $this->db->prepare("SELECT * FROM facolta WHERE idfacolta = ?");
         $stmt->bind_param("i", $idFacolta);
@@ -157,6 +157,12 @@ class DatabaseHelper{
         $stmt = $this->db->prepare("DELETE FROM corso WHERE idcorso=?");
         $stmt->bind_param("i", $id);
         return $stmt->execute();
+    }
+
+    public function getTipologiaByIdFacolta($idFacolta){
+        $stmt = $this->db->prepare("SELECT tipologia FROM facolta WHERE idFacolta = ?");
+        $stmt->bind_param("i", $idFacolta);
+        return $stmt->execute();        
     }
 
 

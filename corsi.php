@@ -19,13 +19,15 @@ $templateParams["css_file"] = "style.css";
 $templateParams["usa_sidebar"] = true;
 
 // Recupera nome facoltà
-$facolta = $dbh->getFacoltaById($idFacolta);
-$templateParams["corso_di_studi"] = $facolta['nome'] ?? 'Facoltà sconosciuta';
+$templateParams["facolta"] = $dbh->getFacoltaById($idFacolta);
+$templateParams["corso_di_studi"] = $templateParams["facolta"]['nome'] ?? 'Facoltà sconosciuta';
 $templateParams["anno_selezionato"] = $anno;
 $templateParams["idFacolta"] = $idFacolta;
 
 // Recupera corsi dal DB
 $templateParams["corsi"] = $dbh->getCorsiByFacoltaAnno($idFacolta, $anno);
+
+$templateParams["tipologia"] = $dbh->getTipologiaByIdFacolta($idFacolta);
 
 require 'templates/base.php';
 

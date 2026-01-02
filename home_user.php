@@ -7,7 +7,7 @@ if (!isUserLoggedIn()) {
     exit;
 }
 
-$facolta_list = $dbh->getAllFacolta(); 
+$templateParams["facolta"] = $dbh->getAllFacolta(); 
 
 $userEmail = $_SESSION['email'];
 
