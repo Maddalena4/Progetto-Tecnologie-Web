@@ -184,6 +184,25 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
+    public function followCorso($idcorso, $iduser) {
+        $stmt = $this->db->prepare(
+            "INSERT IGNORE INTO user_corso (iduser, idcorso) VALUES (?, ?)"
+        );
+        $stmt->bind_param("ii", $iduser, $idcorso);
+        return $stmt->execute();
+    }
+
+    public function isCorsoSeguito($idcorso, $iduser) {
+        $stmt = $this->db->prepare(
+            "SELECT 1 FROM user_corso WHERE iduser = ? AND idcorso = ?"
+        );
+        $stmt->bind_param("ii", $iduser, $idcorso);
+        $stmt->execute();
+        $stmt->store_result();
+        return $stmt->num_rows > 0;
+    }
+
+
 
 }
 ?>

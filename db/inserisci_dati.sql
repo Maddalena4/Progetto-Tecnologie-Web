@@ -20,6 +20,4 @@ INSERT INTO user_corso (iduser, idcorso) VALUES
 
 INSERT INTO pdf (idcorso, nomefile, path)
 VALUES
-(1, 'analisi.pdf', 'upload/pdf/analisi.pdf'),
-(1, 'Analisi Matematica - Appunti 2.pdf', 'upload/pdf/analisi.pdf'),
-(2, 'Fisica - Formulario.pdf', 'upload/pdf/fisica1.pdf');
+(1, 'analisi.pdf', 'upload/pdf/analisi.pdf');

@@ -1,3 +1,10 @@
+<?php $isSeguito = false;
+
+if (isset($_SESSION["iduser"])) {
+    $isSeguito = $dbh->isCorsoSeguito($idcorso, $_SESSION["iduser"]);
+}
+?>
+
 <h2 class="fw-bold mb-5">
     <?= htmlspecialchars($templateParams["corso"]["nome"]) ?>
 </h2>
@@ -27,5 +34,17 @@
 </div>
 
 <div class="text-center mt-4 py-5">
-    <button type="button" class="btn btn-crea-lg">Segui</button>
+    <?php if ($isSeguito): ?>
+        <a href="#"
+           class="btn btn-lg text-white disabled"
+           style="background-color: #00274D; pointer-events: none;">
+            Seguito
+        </a>
+    <?php else: ?>
+        <a href="pdf_corso_controller.php?idcorso=<?= $idcorso ?>&action=follow"
+        class="btn btn-lg text-white"
+        style="background-color: #00274D;">
+            Segui
+        </a>
+    <?php endif; ?>
 </div>
