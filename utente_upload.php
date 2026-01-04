@@ -8,7 +8,6 @@ if (!isUserLoggedIn()) {
 
 $iduser = $_SESSION["iduser"];
 
-// PRENDO SOLO I PDF DELL’UTENTE
 $files = $dbh->getPdfByUser($iduser);
 
 $templateParams["titolo"] = "Upload";

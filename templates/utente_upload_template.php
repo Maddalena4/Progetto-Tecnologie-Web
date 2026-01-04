@@ -25,9 +25,8 @@
 
 </div>
 
-<!-- BOTTONE CARICA -->
 <div class="text-center mt-5 py-5">
-    <a href="upload_form.php"
+    <a href="utente_carica_pdf.php"
        class="btn btn-lg text-white"
        style="background-color: #00274D;">
         Carica
