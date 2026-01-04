@@ -35,10 +35,10 @@ if (isset($_SESSION["iduser"])) {
 
 <div class="text-center mt-4 py-5">
     <?php if ($isSeguito): ?>
-        <a href="#"
-           class="btn btn-lg text-white disabled"
-           style="background-color: #00274D; pointer-events: none;">
-            Seguito
+        <a href="pdf_corso_controller.php?idcorso=<?= $idcorso ?>&action=unfollow"
+           class="btn btn-lg text-white"
+           style="background-color: #00274D;">
+            Non seguire piu
         </a>
     <?php else: ?>
         <a href="pdf_corso_controller.php?idcorso=<?= $idcorso ?>&action=follow"

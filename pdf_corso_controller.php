@@ -27,6 +27,21 @@ if (isset($_GET['action']) && $_GET['action'] === 'follow') {
     exit;
 }
 
+
+if (isset($_GET['action']) && $_GET['action'] === 'unfollow') {
+    if (!isset($_SESSION['iduser'])) {
+        die("Devi essere loggato");
+    }
+
+    $iduser = $_SESSION['iduser'];
+    $idcorso = intval($_GET['idcorso']); // assicurati di prendere idcorso da GET
+
+    $dbh->unfollowCorso($idcorso, $iduser);
+
+    header("Location: pdf_corso_controller.php?idcorso=$idcorso");
+    exit;
+}
+
 $corso = $dbh->getCorsoById($idcorso);
 $pdfs  = $dbh->getPdfByCorso($idcorso);
 

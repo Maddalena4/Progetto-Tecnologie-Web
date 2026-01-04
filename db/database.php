@@ -202,7 +202,11 @@ class DatabaseHelper{
         return $stmt->num_rows > 0;
     }
 
-
+    public function unfollowCorso($idcorso, $iduser) {
+        $stmt = $this->db->prepare("DELETE FROM user_corso WHERE iduser = ? AND idcorso = ?");
+        $stmt->bind_param("ii", $iduser, $idcorso);
+        return $stmt->execute();
+    }
 
 }
 ?>

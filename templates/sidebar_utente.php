@@ -27,13 +27,13 @@
 
     <li class="nav-item">
         <a class="sidebar-link nav-link" href="#">
-            <span class="bi bi-book-half me-2" aria-hidden="true"></span>Libreria
+            <span class="bi bi-star-half me-2" aria-hidden="true"></span>Valutati
         </a>
     </li>
 
     <li class="nav-item">
         <a class="sidebar-link nav-link" href="#">
-            <span class="bi bi-folder2-open me-2" aria-hidden="true"></span>Scaricati
+            <span class="bi bi-folder2-open me-2" aria-hidden="true"></span>Seguiti
         </a>
     </li>
 
