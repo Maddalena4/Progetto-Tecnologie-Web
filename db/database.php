@@ -208,5 +208,21 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
+    public function getCorsiSeguitiByUser($iduser) {
+        $stmt = $this->db->prepare(
+            "SELECT 
+                c.idcorso,
+                c.nome,
+                c.anno,
+                f.nome AS nome_facolta
+            FROM corso c
+            JOIN user_corso uc ON c.idcorso = uc.idcorso
+            JOIN facolta f ON c.idfacolta = f.idfacolta
+            WHERE uc.iduser = ?"
+        );
+        $stmt->bind_param("i", $iduser);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
 }
 ?>

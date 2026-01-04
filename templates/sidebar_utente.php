@@ -32,7 +32,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="sidebar-link nav-link" href="#">
+        <a class="sidebar-link nav-link" href="utente_seguiti_controller.php?action=seguiti">
             <span class="bi bi-folder2-open me-2" aria-hidden="true"></span>Seguiti
         </a>
     </li>
