@@ -175,14 +175,15 @@ class DatabaseHelper{
     }
 
     // Inserimento PDF
-    public function addPdf($idcorso, $nomefile, $path) {
+    public function addPdf($iduser, $idcorso, $nomefile, $path) {
         $stmt = $this->db->prepare(
-            "INSERT INTO pdf (idcorso, nomefile, path)
-             VALUES (?, ?, ?)"
+            "INSERT INTO pdf (iduser, idcorso, nomefile, path)
+            VALUES (?, ?, ?, ?)"
         );
-        $stmt->bind_param("iss", $idcorso, $nomefile, $path);
+        $stmt->bind_param("iiss", $iduser, $idcorso, $nomefile, $path);
         return $stmt->execute();
     }
+
 
     public function followCorso($idcorso, $iduser) {
         $stmt = $this->db->prepare(
@@ -207,6 +208,16 @@ class DatabaseHelper{
         $stmt->bind_param("ii", $iduser, $idcorso);
         return $stmt->execute();
     }
+
+    public function getPdfByUser($iduser) {
+        $stmt = $this->db->prepare(
+            "SELECT * FROM pdf WHERE iduser = ?"
+        );
+        $stmt->bind_param("i", $iduser);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
 
 }
 ?>

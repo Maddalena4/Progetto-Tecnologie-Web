@@ -14,7 +14,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="sidebar-link nav-link" href="#">
+        <a class="sidebar-link nav-link" href="utente_upload.php">
             <span class="bi bi-upload me-2" aria-hidden="true"></span>Upload
         </a>
     </li>
