@@ -26,7 +26,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="sidebar-link nav-link" href="#">
+        <a class="sidebar-link nav-link" href="pdf_valutati_controller.php">
             <span class="bi bi-star-half me-2" aria-hidden="true"></span>Valutati
         </a>
     </li>

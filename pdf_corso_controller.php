@@ -42,8 +42,35 @@ if (isset($_GET['action']) && $_GET['action'] === 'unfollow') {
     exit;
 }
 
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idpdf"], $_POST["valore"])) {
+    if (!isset($_SESSION["iduser"])) {
+        die("Devi essere loggato");
+    }
+
+    $idpdf  = intval($_POST["idpdf"]);
+    $valore = intval($_POST["valore"]);
+    $iduser = $_SESSION["iduser"];
+
+    if ($valore >= 1 && $valore <= 5) {
+        $dbh->valutaPdf($idpdf, $iduser, $valore);
+    }
+
+    header("Location: pdf_corso_controller.php?idcorso=$idcorso");
+    exit;
+}
+
+
 $corso = $dbh->getCorsoById($idcorso);
-$pdfs  = $dbh->getPdfByCorso($idcorso);
+$pdfs = $dbh->getPdfByCorso($idcorso);
+
+foreach ($pdfs as &$pdf) {
+    $pdf["rating"] = $dbh->getMediaValutazionePdf($pdf["idpdf"]);
+    $pdf["user_rating"] = isset($_SESSION["iduser"])
+        ? $dbh->getValutazioneUtentePdf($pdf["idpdf"], $_SESSION["iduser"])
+        : null;
+}
+
 
 if (!$corso) {
     die("Corso non trovato");
