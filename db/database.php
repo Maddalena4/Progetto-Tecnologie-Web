@@ -259,5 +259,66 @@ class DatabaseHelper{
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function valutaPdf($idpdf, $iduser, $valore) {
+        $stmt = $this->db->prepare("
+            INSERT INTO valutazione_pdf (idpdf, iduser, valore)
+            VALUES (?, ?, ?)
+            ON DUPLICATE KEY UPDATE valore = VALUES(valore)");
+        $stmt->bind_param("iii", $idpdf, $iduser, $valore);
+        return $stmt->execute();
+    }
+
+
+    public function getMediaValutazionePdf($idpdf) {
+        $stmt = $this->db->prepare("
+            SELECT ROUND(AVG(valore), 1) AS media, COUNT(*) AS totale
+            FROM valutazione_pdf
+            WHERE idpdf = ?");
+        $stmt->bind_param("i", $idpdf);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            return [
+                "media" => (float)$row["media"],
+                "totale" => (int)$row["totale"]
+            ];
+        }
+        return ["media" => 0, "totale" => 0];
+    }
+
+    public function getValutazioneUtentePdf($idpdf, $iduser) {
+        $stmt = $this->db->prepare("
+            SELECT valore
+            FROM valutazione_pdf
+            WHERE idpdf = ? AND iduser = ?");
+        $stmt->bind_param("ii", $idpdf, $iduser);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_row();
+
+        return $row ? (int)$row[0] : null;
+    }
+
+    public function getPdfValutatiDaUtente($iduser) {
+        $stmt = $this->db->prepare("
+            SELECT 
+                p.idpdf,
+                p.nomefile,
+                p.path,
+                v.valore AS voto_utente,
+                ROUND(AVG(v2.valore), 1) AS media,
+                COUNT(v2.idvalutazione) AS totale_voti
+            FROM valutazione_pdf v
+            JOIN pdf p ON p.idpdf = v.idpdf
+            LEFT JOIN valutazione_pdf v2 ON v2.idpdf = p.idpdf
+            WHERE v.iduser = ?
+            GROUP BY p.idpdf
+        ");
+        $stmt->bind_param("i", $iduser);
+        $stmt->execute();
+
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
 }
 ?>
