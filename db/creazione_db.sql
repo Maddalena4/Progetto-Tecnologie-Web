@@ -29,15 +29,22 @@ CREATE TABLE corso (
 
 CREATE TABLE pdf (
     idpdf INT AUTO_INCREMENT PRIMARY KEY,
+    iduser INT NOT NULL,
     idcorso INT NOT NULL,
     nomefile VARCHAR(255) NOT NULL,
     path VARCHAR(255) NOT NULL,
-    upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    data_upload DATETIME DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY (idcorso)
+    CONSTRAINT fk_pdf_user
+        FOREIGN KEY (iduser)
+        REFERENCES user(iduser)
+        ON DELETE CASCADE,
+
+    CONSTRAINT fk_pdf_corso
+        FOREIGN KEY (idcorso)
         REFERENCES corso(idcorso)
         ON DELETE CASCADE
-) ENGINE=InnoDB;
+)ENGINE=InnoDB;
 
 -- VALUTAZIONI PDF
 CREATE TABLE valutazione_pdf (
