@@ -235,6 +235,29 @@ class DatabaseHelper{
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getAllPdf($search = null) {
+        if ($search) {
+            $stmt = $this->db->prepare(
+                "SELECT pdf.*, corso.nome AS corso_nome
+                FROM pdf
+                JOIN corso ON pdf.idcorso = corso.idcorso
+                WHERE pdf.nomefile LIKE ?
+                ORDER BY pdf.data_upload DESC"
+            );
+            $like = "%" . $search . "%";
+            $stmt->bind_param("s", $like);
+        } else {
+            $stmt = $this->db->prepare(
+                "SELECT pdf.*, corso.nome AS corso_nome
+                FROM pdf
+                JOIN corso ON pdf.idcorso = corso.idcorso
+                ORDER BY pdf.data_upload DESC"
+            );
+        }
+
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
 
 }
 ?>

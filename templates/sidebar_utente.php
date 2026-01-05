@@ -20,8 +20,8 @@
     </li>
 
     <li class="nav-item">
-        <a class="sidebar-link nav-link" href="#">
-            <span class="bi bi-download me-2" aria-hidden="true"></span>Download
+        <a class="sidebar-link nav-link" href="utente_libreria.php">
+            <span class="bi bi-book-half me-2" aria-hidden="true"></span>Libreria
         </a>
     </li>
 
