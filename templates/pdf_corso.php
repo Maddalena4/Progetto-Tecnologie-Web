@@ -1,15 +1,8 @@
-<?php $isSeguito = false;
-
-if (isset($_SESSION["iduser"])) {
-    $isSeguito = $dbh->isCorsoSeguito($idcorso, $_SESSION["iduser"]);
-}
-?>
-
 <h2 class="fw-bold mb-5">
     <?= htmlspecialchars($templateParams["corso"]["nome"]) ?>
 </h2>
 
-<div class="row row-cols-3 g-4">
+<div class="row row-cols-1 row-cols-md-3 g-4">
 
 <?php if (count($templateParams["pdfs"]) === 0): ?>
     <p>Nessun PDF disponibile per questo corso</p>
@@ -19,13 +12,28 @@ if (isset($_SESSION["iduser"])) {
     <div class="col">
         <a href="<?= htmlspecialchars($pdf["path"]) ?>"
            target="_blank"
-           class="file-item text-decoration-none text-dark">
+           class="text-decoration-none text-dark">
 
-            <div class="file-icon-placeholder text-center p-4 border rounded">
-                <i class="bi bi-file-earmark-pdf-fill fs-1"></i>
-                <div class="mt-2 text-truncate">
+            <div class="border rounded p-3 text-center h-100">
+
+                <i class="bi bi-file-earmark-pdf-fill fs-1 text-danger"></i>
+
+                <div class="mt-2 text-truncate fw-semibold">
                     <?= htmlspecialchars($pdf["nomefile"]) ?>
                 </div>
+
+                <div class="mt-1">
+                    <span class="badge bg-info">
+                        v<?= $pdf["versione"] ?>
+                    </span>
+
+                    <?php if ($pdf["is_latest"]): ?>
+                        <span class="badge bg-success">
+                            Versione aggiornata
+                        </span>
+                    <?php endif; ?>
+                </div>
+
             </div>
         </a>
     </div>
@@ -33,18 +41,16 @@ if (isset($_SESSION["iduser"])) {
 
 </div>
 
-<div class="text-center mt-4 py-5">
-    <?php if ($isSeguito): ?>
-        <a href="pdf_corso_controller.php?idcorso=<?= $idcorso ?>&action=unfollow"
-           class="btn btn-lg text-white"
-           style="background-color: #00274D;">
-            Non seguire piu
-        </a>
-    <?php else: ?>
-        <a href="pdf_corso_controller.php?idcorso=<?= $idcorso ?>&action=follow"
-        class="btn btn-lg text-white"
-        style="background-color: #00274D;">
-            Segui
-        </a>
-    <?php endif; ?>
+<div class="text-center mt-5">
+<?php if ($templateParams["isSeguito"]): ?>
+    <a href="pdf_corso_controller.php?idcorso=<?= $templateParams["corso"]["idcorso"] ?>&action=unfollow"
+       class="btn btn-lg text-white" style="background:#00274D">
+        Non seguire più
+    </a>
+<?php else: ?>
+    <a href="pdf_corso_controller.php?idcorso=<?= $templateParams["corso"]["idcorso"] ?>&action=follow"
+       class="btn btn-lg text-white" style="background:#00274D">
+        Segui
+    </a>
+<?php endif; ?>
 </div>

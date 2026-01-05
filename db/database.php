@@ -166,23 +166,46 @@ class DatabaseHelper{
     }
 
     public function getPdfByCorso($idcorso) {
-        $stmt = $this->db->prepare(
-            "SELECT * FROM pdf WHERE idcorso = ?"
-        );
-        $stmt->bind_param("i", $idcorso);
-        $stmt->execute();
-        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-    }
+    $stmt = $this->db->prepare(
+        "SELECT *
+         FROM pdf
+         WHERE idcorso = ?
+         ORDER BY is_latest DESC, versione DESC"
+    );
+    $stmt->bind_param("i", $idcorso);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+}
+
 
     // Inserimento PDF
     public function addPdf($iduser, $idcorso, $nomefile, $path) {
-        $stmt = $this->db->prepare(
-            "INSERT INTO pdf (iduser, idcorso, nomefile, path)
-            VALUES (?, ?, ?, ?)"
-        );
-        $stmt->bind_param("iiss", $iduser, $idcorso, $nomefile, $path);
-        return $stmt->execute();
+
+    $lastVersion = $this->getLastPdfVersion($idcorso);
+    $newVersion = $lastVersion + 1;
+
+    if ($lastVersion > 0) {
+        $this->deactivateLatestPdf($idcorso);
     }
+
+    $stmt = $this->db->prepare(
+        "INSERT INTO pdf
+        (iduser, idcorso, nomefile, path, versione, is_latest)
+        VALUES (?, ?, ?, ?, ?, TRUE)"
+    );
+
+    $stmt->bind_param(
+        "iissi",
+        $iduser,
+        $idcorso,
+        $nomefile,
+        $path,
+        $newVersion
+    );
+
+    return $stmt->execute();
+}
+
 
 
     public function followCorso($idcorso, $iduser) {
@@ -258,6 +281,33 @@ class DatabaseHelper{
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getLastPdfVersion($idcorso) {
+    $stmt = $this->db->prepare(
+        "SELECT MAX(versione) AS max_version
+         FROM pdf
+         WHERE idcorso = ?"
+    );
+    $stmt->bind_param("i", $idcorso);
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_assoc();
+    return $res['max_version'] ?? 0;
+    }
+
+    public function deactivateLatestPdf($idcorso) {
+    $stmt = $this->db->prepare(
+        "UPDATE pdf
+         SET is_latest = FALSE
+         WHERE idcorso = ? AND is_latest = TRUE"
+    );
+    $stmt->bind_param("i", $idcorso);
+    return $stmt->execute();
+    }
+
+
+
+
+
 
 }
 ?>
