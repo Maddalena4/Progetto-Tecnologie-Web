@@ -27,7 +27,7 @@ if (isset($_POST["conferma_upload"])) {
         list($result, $msg) = uploadPdf($uploadDir, $file);
         if ($result == 1) {
             $dbPath = $uploadDir . $msg;
-            if ($dbh->addPdf($idcorso, $msg, $dbPath, $iduser)) {
+            if ($dbh->addPdf($iduser, $idcorso, $msg, $dbPath)) {
                 header("Location: utente_upload.php");
                 exit;
             } else {

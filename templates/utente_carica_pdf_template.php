@@ -10,7 +10,7 @@
 
     <div class="card shadow-sm">
         <div class="card-body p-4">
-            <form action="upload_form.php" method="POST" enctype="multipart/form-data" id="uploadForm">
+            <form action="utente_carica_pdf.php" method="POST" enctype="multipart/form-data" id="uploadForm">
 
                 <div class="mb-4">
                     <label for="idfacolta" class="form-label fw-bold">1. Seleziona la Facoltà</label>
