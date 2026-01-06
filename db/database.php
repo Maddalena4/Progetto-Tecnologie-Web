@@ -103,7 +103,6 @@ class DatabaseHelper{
     return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-
     public function deleteFacolta($idFacolta){
         $stmt = $this->db->prepare("DELETE FROM facolta WHERE idfacolta = ?");
         $stmt->bind_param("i", $idFacolta);
@@ -123,17 +122,18 @@ class DatabaseHelper{
         $stmt->bind_param("ssi", $nuovoNome, $nuovaTipologia, $idFacolta);
         return $stmt->execute();
     }
+
     public function getCorsoById($id) {
-    $stmt = $this->db->prepare("SELECT * FROM corso WHERE idcorso = ?");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    return $stmt->get_result()->fetch_assoc();
+        $stmt = $this->db->prepare("SELECT * FROM corso WHERE idcorso = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
     }
 
     public function getAllCorsi() {
-    $stmt = $this->db->prepare("SELECT * FROM corso");
-    $stmt->execute();
-    return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        $stmt = $this->db->prepare("SELECT * FROM corso");
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
     public function addCorso($nome, $anno, $idfacolta) {
@@ -350,8 +350,6 @@ class DatabaseHelper{
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
-
-
 
 }
 ?>
