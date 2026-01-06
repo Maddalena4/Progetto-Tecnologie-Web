@@ -19,7 +19,7 @@ if (isset($_SESSION["iduser"])) {
     <div class="col">
         <div class="file-item text-center">
 
-            <a href="<?= htmlspecialchars($pdf["path"]) ?>"
+            <a href="<?= 'uploads/pdf/' . rawurlencode($pdf["path"]) ?>"
                target="_blank"
                class="text-decoration-none text-dark">
 
