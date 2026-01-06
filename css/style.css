@@ -1,81 +1,90 @@
-    body {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        background-color: #F5F5F5;
-    }
-    
-    body > div> main > div > button:first-child {
-        background-color: #00274D;
-        border: 2px solid #00274D;
-        font-weight: 600;
-    }
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #F5F5F5;
+    margin: 0; /* aggiunto per sicurezza */
+}
 
-    body > div > main > div > button:last-child {
-        background-color: #F5F5F5;
-        border: 2px solid #00274D;
-        color: #00274D;
-        font-weight: 600;
-    }
+main.container.py-5 {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: calc(100vh - 112px); /* regola 112px in base ad altezza navbar+footer */
+    padding-bottom: 1rem;
+}
 
-    body > div > main > div > button:last-child:hover {
-        background-color: #00274D;
-        border-color: #00274D;
-        color: #FFFFFF;
-    }
+/* Esistenti */
+body > div > main > div > button:first-child {
+    background-color: #00274D;
+    border: 2px solid #00274D;
+    font-weight: 600;
+}
 
-    footer {
-        background-color: #00274D;
-        margin-top: auto; /* Spinge il footer verso il basso */
-    }
+body > div > main > div > button:last-child {
+    background-color: #F5F5F5;
+    border: 2px solid #00274D;
+    color: #00274D;
+    font-weight: 600;
+}
 
-    h1, h2, label{
-        color: #00274D;
-    }
+body > div > main > div > button:last-child:hover {
+    background-color: #00274D;
+    border-color: #00274D;
+    color: #FFFFFF;
+}
 
-    body> main > form > ul> li > div > input{
-        background-color: #00274D;
-    }
+footer {
+    background-color: #00274D;
+    margin-top: auto; /* Spinge il footer verso il basso */
+}
 
-    body> main > form > ul> li > div > button{
-        background-color: #00274D;
-    }
+h1, h2, label {
+    color: #00274D;
+}
 
-    body>nav{
-        background-color: #00274D;
-    }
+body > main > form > ul > li > div > input {
+    background-color: #00274D;
+}
 
-    body > nav > button{
-        background-color: #F5F5F5;
-    }
+body > main > form > ul > li > div > button {
+    background-color: #00274D;
+}
 
-    body > div#sidebar {
-        background-color: #02284a;
-        color: white;
-    }
+body > nav {
+    background-color: #00274D;
+}
 
-    body > div#sidebar a.nav-link {
-        color: #fff;
-        font-weight: 600;
-    }
+body > nav > button {
+    background-color: #F5F5F5;
+}
 
-    main > div > div > a{
-        color:#000000;
-    }
+body > div#sidebar {
+    background-color: #02284a;
+    color: white;
+}
 
-    main > div > div > a:hover{
-        color:#00274D;
-        font-weight: bold;
-    }
+body > div#sidebar a.nav-link {
+    color: #fff;
+    font-weight: 600;
+}
 
-    main > div:last-child > button{
-        color: #FFFFFF;
-        background-color: #00274D;
-    }
+main > div > div > a {
+    color: #000000;
+}
 
-    main > div:last-child > button:hover{
-        color: #00274D;
-        background-color: #F5F5F5;
-        border-color: #00274D;
-        font-weight: bold;
-    }
+main > div > div > a:hover {
+    color: #00274D;
+    font-weight: bold;
+}
+
+main > div:last-child > button {
+    color: #FFFFFF;
+    background-color: #00274D;
+}
+
+main > div:last-child > button:hover {
+    color: #00274D;
+    background-color: #F5F5F5;
+    border-color: #00274D;
+    font-weight: bold;
+}
