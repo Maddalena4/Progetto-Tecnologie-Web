@@ -79,3 +79,19 @@
         border-color: #00274D;
         font-weight: bold;
     }
+    
+    .btn-unibo {
+        background-color: #00274D;
+        color: #ffffff;
+        font-weight: 600;
+        border: 2px solid #00274D;
+    }
+
+    .btn-unibo:hover,
+    .btn-unibo:focus,
+    .btn-unibo:active {
+        background-color: #00274D;
+        color: #ffffff;
+        border-color: #00274D;
+        outline: none; 
+    }
