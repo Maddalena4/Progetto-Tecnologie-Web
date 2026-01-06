@@ -1,4 +1,4 @@
-<form action="admin_controller_corsi.php" method="POST">
+<form action="admin_controller_corsi.php" method="POST" class="mb-5 p-4">
 
     <input type="hidden" name="action" value="create">
 
@@ -7,21 +7,26 @@
                value="<?= $templateParams['idfacolta']; ?>">
     <?php endif; ?>
 
-    <!-- NOME CORSO -->
     <div class="mb-3">
-        <label class="form-label">Nome corso</label>
-        <input type="text" name="nome" class="form-control" required>
+        <label for="nome_corso" class="form-label fw-semibold">Nome corso</label>
+        <input type="text"
+               id="nome_corso"
+               name="nome"
+               class="form-control"
+               required>
     </div>
 
-    <!-- SELEZIONE FACOLTÀ -->
     <div class="dropdown mb-4">
         <button class="btn text-white dropdown-toggle"
                 style="background-color:#00274D;"
-                data-bs-toggle="dropdown">
+                id="dropdownFacolta"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Seleziona Facoltà">
             Seleziona Facoltà
         </button>
 
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu" aria-labelledby="dropdownFacolta">
             <?php foreach ($templateParams['lista_facolta'] as $facolta): ?>
                 <li>
                     <a class="dropdown-item"
@@ -33,10 +38,9 @@
         </ul>
     </div>
 
-    <!-- ANNO (solo se facoltà selezionata) -->
     <?php if (!empty($templateParams['facolta'])): ?>
-        <div class="mb-3">
-            <label class="form-label">Anno</label>
+        <fieldset class="mb-3">
+            <legend class="form-label fw-semibold">Anno</legend>
 
             <?php
                 $maxAnno = ($templateParams['facolta']['tipologia'] === 'magistrale') ? 2 : 3;
@@ -46,24 +50,25 @@
                 <div class="form-check">
                     <input class="form-check-input"
                            type="radio"
+                           id="anno_<?= $i; ?>"
                            name="anno"
                            value="<?= $i; ?>"
                            required>
-                    <label class="form-check-label">
+                    <label class="form-check-label" for="anno_<?= $i; ?>">
                         <?= $i; ?>° anno
                     </label>
                 </div>
             <?php endfor; ?>
-        </div>
+        </fieldset>
     <?php endif; ?>
 
-    <!-- CREA -->
-    <button type="submit"
-            class="btn text-white"
-            style="background-color:#00274D;"
-            <?= empty($templateParams['facolta']) ? 'disabled' : ''; ?>>
-        Crea corso
-    </button>
+    <div class="text-center mt-4">
+        <button type="submit"
+                class="btn text-white px-4 py-2"
+                style="background-color:#00274D; min-width: 140px; font-size: 0.9rem;"
+                <?= empty($templateParams['facolta']) ? 'disabled' : ''; ?>>
+            Crea corso
+        </button>
+    </div>
 
 </form>
-
