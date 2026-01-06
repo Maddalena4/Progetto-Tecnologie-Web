@@ -1,6 +1,6 @@
 INSERT INTO user (email, password, role) VALUES
 ('maddalena.prandini@studio.unibo.it', 'ok', 'admin'),
-('ciao.ciao@gmail.com', 'prova', 'user');
+('elena.fucci3@studio.unibo.it', 'prova', 'user');
 
 INSERT INTO facolta (nome, tipologia) VALUES
 ('Informatica', 'triennale'),
@@ -20,4 +20,4 @@ INSERT INTO user_corso (iduser, idcorso) VALUES
 
 INSERT INTO pdf (iduser, idcorso, nomefile, path)
 VALUES
-(2, 1, 'analisi.pdf', 'uploads/pdf/analisi.pdf');
+(2, 1, '3_Overlay_networks.pdf', 'uploads/pdf/3_Overlay_networks.pdf');

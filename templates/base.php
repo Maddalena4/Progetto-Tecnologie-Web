@@ -4,13 +4,13 @@ require_once 'utils/functions.php';
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title><?= $templateParams["titolo"]; ?></title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/<?= $templateParams["css_file"]; ?>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/<?= $templateParams["css_file"]; ?>"/>
 </head>
 
 <body>
@@ -29,9 +29,10 @@ require_once 'utils/functions.php';
         <span class="fw-bold ms-2 text-white">Università di Bologna</span>
     </nav>
 
-    <div class="offcanvas offcanvas-start sidebar-bg" tabindex="-1" id="sidebar">
+    <div class="offcanvas offcanvas-start sidebar-bg text-white" tabindex="-1"
+     id="sidebar" role="dialog" aria-labelledby="sidebarLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title">
+            <h5 class="offcanvas-title" id="sidebarLabel">
                 <?= getUserRole() === 'admin' ? 'Menu Admin' : 'Menu Utente'; ?>
             </h5>
             <button type="button"
@@ -51,7 +52,7 @@ require_once 'utils/functions.php';
         </div>
     </div>
 
-    <main class="container py-5 vh-100 flex-column">
+    <main class="container py-5 flex-column">
         <?php require $templateParams["nome"]; ?>
     </main>
 

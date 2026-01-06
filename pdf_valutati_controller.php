@@ -11,7 +11,6 @@ if (!isset($_SESSION["iduser"])) {
 
 $iduser = $_SESSION["iduser"];
 
-// Recupero PDF valutati dall'utente
 $pdfsValutati = $dbh->getPdfValutatiDaUtente($iduser);
 
 $templateParams = [

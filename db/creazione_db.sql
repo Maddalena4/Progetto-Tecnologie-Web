@@ -73,3 +73,18 @@ CREATE TABLE user_corso (
         REFERENCES corso(idcorso)
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
+
+CREATE TABLE notifica (
+    idnotifica INT(11) NOT NULL AUTO_INCREMENT,
+    iduser INT(11) NOT NULL,
+    messaggio VARCHAR(255) NOT NULL,
+    link VARCHAR(255) DEFAULT NULL,
+    is_read TINYINT(1) NOT NULL DEFAULT 0,
+    data_notifica DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (idnotifica),
+    KEY idx_notifica_user (iduser),
+    CONSTRAINT fk_notifica_user
+        FOREIGN KEY (iduser)
+        REFERENCES user(iduser)
+        ON DELETE CASCADE
+);

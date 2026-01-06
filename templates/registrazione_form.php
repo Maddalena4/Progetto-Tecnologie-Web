@@ -12,7 +12,6 @@
 
         <form method="POST">
 
-            <!-- EMAIL -->
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
                 <input type="email"
@@ -20,10 +19,9 @@
                     name="email"
                     class="form-control form-control-lg"
                     placeholder="Your email"
-                    required>
+                    required/>
             </div>
 
-            <!-- PASSWORD -->
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
                 <input type="password"
@@ -31,10 +29,9 @@
                     name="password"
                     class="form-control form-control-lg"
                     placeholder="Password"
-                    required>
+                    required/>
             </div>
 
-            <!-- REPEAT PASSWORD -->
             <div class="mb-3">
                 <label for="repeat_password" class="form-label">Repeat password</label>
                 <input type="password"
@@ -42,18 +39,7 @@
                     name="repeat_password"
                     class="form-control form-control-lg"
                     placeholder="Repeat your password"
-                    required>
-            </div>
-
-            <!-- TERMS -->
-            <div class="form-check mb-4">
-                <input type="checkbox"
-                    id="terms"
-                    class="form-check-input"
-                    required>
-                <label for="terms" class="form-check-label">
-                    I agree to the <a href="#">Terms of service</a>
-                </label>
+                    required/>
             </div>
 
             <button type="submit" class="btn btn-lg w-100 gradient-btn">

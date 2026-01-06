@@ -16,6 +16,9 @@ $templateParams["nome"] = "templates/utente_home.php";
 $templateParams["css_file"] = "style.css";
 $templateParams["usa_sidebar"] = true;
 $templateParams["show_welcome"] = true;
+$templateParams["notifiche"] =
+    $dbh->getNotificheByUser($_SESSION["iduser"]);
+
 
 require 'templates/base.php';
 ?>

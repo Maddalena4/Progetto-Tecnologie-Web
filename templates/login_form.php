@@ -12,7 +12,6 @@
 
         <form method="POST">
 
-            <!-- EMAIL -->
             <div class="mb-3">
                 <label for="email" class="visually-hidden">Email</label>
                 <input type="email"
@@ -20,10 +19,9 @@
                        name="email"
                        class="form-control form-control-lg"
                        placeholder="Your Email"
-                       required>
+                       required/>
             </div>
-
-            <!-- PASSWORD -->
+            
             <div class="mb-4">
                 <label for="password" class="visually-hidden">Password</label>
                 <input type="password"
@@ -31,7 +29,7 @@
                        name="password"
                        class="form-control form-control-lg"
                        placeholder="Password"
-                       required>
+                       required/>
             </div>
 
             <button type="submit" class="btn btn-lg w-100 gradient-btn">

@@ -17,6 +17,9 @@ switch($action){
         $templateParams["titolo"] = "User - Facoltà";
         $templateParams["nome"] = "templates/utente_home.php";
         $templateParams["facolta"] = $dbh->getAllFacolta();
+        $templateParams["notifiche"] =
+            $dbh->getNotificheByUser($_SESSION["iduser"]);
+
         break;
 
 }

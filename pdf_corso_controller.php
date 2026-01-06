@@ -12,14 +12,13 @@ if (!isset($_GET['idcorso'])) {
 
 $idcorso = intval($_GET['idcorso']);
 
-// Gestione azione follow tramite GET
 if (isset($_GET['action']) && $_GET['action'] === 'follow') {
     if (!isset($_SESSION['iduser'])) {
         die("Devi essere loggato");
     }
 
     $iduser = $_SESSION['iduser'];
-    $idcorso = intval($_GET['idcorso']); // assicurati di prendere idcorso da GET
+    $idcorso = intval($_GET['idcorso']);
 
     $dbh->followCorso($idcorso, $iduser);
 
@@ -34,7 +33,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'unfollow') {
     }
 
     $iduser = $_SESSION['iduser'];
-    $idcorso = intval($_GET['idcorso']); // assicurati di prendere idcorso da GET
+    $idcorso = intval($_GET['idcorso']);
 
     $dbh->unfollowCorso($idcorso, $iduser);
 
@@ -76,7 +75,6 @@ if (!$corso) {
     die("Corso non trovato");
 }
 
-// Verifica se l’utente segue già il corso
 $isSeguito = false;
 if (isset($_SESSION['iduser'])) {
     $isSeguito = $dbh->isCorsoSeguito($idcorso, $_SESSION['iduser']);
