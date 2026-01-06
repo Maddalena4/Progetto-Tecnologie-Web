@@ -12,7 +12,7 @@
     <div class="col-8 col-md-9">
         <a href="pdf_corso_controller.php?idcorso=<?= $corso['idcorso']; ?>"
            class="scelta d-block text-start text-decoration-none">
-            <i class="bi bi-flower1 me-2"></i>
+            <span class="bi bi-flower1 me-2"></span>
             <?= htmlspecialchars($corso['nome']); ?>
         </a>
     </div>

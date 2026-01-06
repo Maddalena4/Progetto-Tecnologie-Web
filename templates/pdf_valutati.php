@@ -17,7 +17,7 @@
                class="text-decoration-none text-dark">
 
                 <div class="file-icon-placeholder p-4 border rounded">
-                    <i class="bi bi-file-earmark-pdf-fill fs-1"></i>
+                    <span class="bi bi-file-earmark-pdf-fill fs-1"></span>
                     <div class="mt-2 text-truncate">
                         <?= htmlspecialchars($pdf["nomefile"]) ?>
                     </div>
@@ -35,9 +35,9 @@
             <div class="mt-1">
                 <small class="fw-bold">Il tuo voto:</small><br>
                 <?php for ($i = 1; $i <= 5; $i++): ?>
-                    <i class="bi <?= ($pdf["voto_utente"] >= $i)
+                    <span class="bi <?= ($pdf["voto_utente"] >= $i)
                         ? 'bi-star-fill text-warning'
-                        : 'bi-star text-secondary' ?>"></i>
+                        : 'bi-star text-secondary' ?>"></span>
                 <?php endfor; ?>
             </div>
 
