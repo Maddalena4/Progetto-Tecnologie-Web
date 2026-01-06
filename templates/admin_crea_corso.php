@@ -7,15 +7,6 @@
                value="<?= $templateParams['idfacolta']; ?>">
     <?php endif; ?>
 
-    <div class="mb-3">
-        <label for="nome_corso" class="form-label fw-semibold">Nome corso</label>
-        <input type="text"
-               id="nome_corso"
-               name="nome"
-               class="form-control"
-               required>
-    </div>
-
     <div class="dropdown mb-4">
         <button class="btn text-white dropdown-toggle"
                 style="background-color:#00274D;"
@@ -36,6 +27,15 @@
                 </li>
             <?php endforeach; ?>
         </ul>
+    </div>
+
+    <div class="mb-3">
+        <label for="nome_corso" class="form-label fw-semibold">Nome corso</label>
+        <input type="text"
+               id="nome_corso"
+               name="nome"
+               class="form-control"
+               required>
     </div>
 
     <?php if (!empty($templateParams['facolta'])): ?>
