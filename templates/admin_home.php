@@ -1,4 +1,4 @@
-<div class="text-center d-flex flex-column justify-content-center align-items-center h-100">
+<div class="text-center d-flex flex-column justify-content-center align-items-center vh-100">
     <h1 class="fw-bold mb-4">BENVENUTO ADMIN!</h1>
     
     <h2 class="fs-5">numero utenti registrati: 
