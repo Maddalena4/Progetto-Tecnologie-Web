@@ -8,7 +8,7 @@
 
     <?php foreach ($templateParams["files"] as $file): ?>
         <div class="col">
-            <a href="<?= 'uploads/pdf/' . rawurlencode($file["nomefile"]) ?>"
+            <a href="<?= 'uploads/pdf/'.rawurlencode($file["nomefile"]) ?>"
             target="_blank"
             class="file-item text-decoration-none text-dark">
 
