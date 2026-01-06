@@ -8,12 +8,12 @@
 
 <?php foreach ($templateParams["files"] as $file): ?>
     <div class="col">
-        <a href="<?= htmlspecialchars($file["path"]) ?>"
+        <a href="<?= 'uploads/pdf/' . rawurlencode($file["nomefile"]) ?>"
            target="_blank"
            class="file-item text-decoration-none text-dark">
 
             <div class="file-icon-placeholder text-center p-4 border rounded">
-                <i class="bi bi-file-earmark-pdf-fill fs-1"></i>
+                <span class="bi bi-file-earmark-pdf-fill fs-1"></span>
 
                 <div class="mt-2 text-truncate">
                     <?= htmlspecialchars($file["nomefile"]) ?>
