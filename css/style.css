@@ -3,14 +3,13 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #F5F5F5;
-    margin: 0; /* aggiunto per sicurezza */
+    margin: 0; /* sicurezza */
 }
 
 main.container.py-5 {
     flex-grow: 1;
-    overflow-y: auto;
-    max-height: calc(100vh - 112px); /* regola 112px in base ad altezza navbar+footer */
     padding-bottom: 1rem;
+    /* Rimosso overflow e max-height per scroll pagina intera */
 }
 
 /* Esistenti */
