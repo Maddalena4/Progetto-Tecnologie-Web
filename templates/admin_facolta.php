@@ -43,3 +43,11 @@
 
 </div>
 <?php endforeach; ?>
+
+<div class="text-center mt-4 py-5">
+    <a href="admin.php?action=crea_facolta"
+    class="btn btn-lg text-white"
+    style="background-color: #00274D;">
+        + Crea
+    </a>
+</div>

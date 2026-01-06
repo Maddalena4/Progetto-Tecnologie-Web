@@ -5,8 +5,8 @@
         <input type="text" name="nome_facolta" id="nome_facolta" class="form-control" required>
     </div>
 
-    <div class="mb-3">
-        <label class="form-label fw-semibold">Tipologia</label>
+    <fieldset class="mb-3">
+        <legend class="form-label fw-semibold">Tipologia</legend>
         
         <div class="form-check">
             <input class="form-check-input" type="radio" name="tipologia" id="tipo_triennale" value="triennale" required>
@@ -21,7 +21,7 @@
                 Magistrale
             </label>
         </div>
-    </div>
+    </fieldset>
 
     <input type="hidden" name="action" value="create">
 
