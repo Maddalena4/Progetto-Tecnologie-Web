@@ -29,9 +29,10 @@ require_once 'utils/functions.php';
         <span class="fw-bold ms-2 text-white">Università di Bologna</span>
     </nav>
 
-    <div class="offcanvas offcanvas-start sidebar-bg" tabindex="-1" id="sidebar">
+    <div class="offcanvas offcanvas-start sidebar-bg text-white" tabindex="-1"
+     id="sidebar" aria-labelledby="sidebarLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title">
+            <h5 class="offcanvas-title" id="sidebarLabel">
                 <?= getUserRole() === 'admin' ? 'Menu Admin' : 'Menu Utente'; ?>
             </h5>
             <button type="button"
