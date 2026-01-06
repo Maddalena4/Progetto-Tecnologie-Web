@@ -2,7 +2,6 @@
 session_start();
 require_once "bootstrap.php";
 
-// Sicurezza
 if (!isUserLoggedIn() || getUserRole() !== 'admin') {
     header("Location: index.php");
     exit;
@@ -10,7 +9,6 @@ if (!isUserLoggedIn() || getUserRole() !== 'admin') {
 
 $action = $_POST['action'] ?? null;
 
-//create
 if ($action === 'create') {
 
     if (empty($_POST['nome_facolta']) || empty($_POST['tipologia'])) {
@@ -26,7 +24,6 @@ if ($action === 'create') {
     exit;
 }
 
-// Update
 if ($action === 'update') {
 
     if (
@@ -50,7 +47,6 @@ if ($action === 'update') {
     exit;
 }
 
-// Delete
 if ($action === 'delete') {
 
     if (!isset($_POST['idfacolta']) || !is_numeric($_POST['idfacolta'])) {
@@ -66,6 +62,5 @@ if ($action === 'delete') {
     exit;
 }
 
-// Azione non riconosciuta
 header("Location: admin.php?action=facolta&error=invalid_action");
 exit;

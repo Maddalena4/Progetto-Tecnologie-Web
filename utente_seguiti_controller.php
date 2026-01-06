@@ -11,7 +11,6 @@ if (!isset($_SESSION["iduser"])) {
 
 $iduser = $_SESSION["iduser"];
 
-// prende TUTTI i corsi seguiti dall’utente
 $corsiSeguiti = $dbh->getCorsiSeguitiByUser($iduser);
 
 $templateParams = [

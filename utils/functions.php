@@ -24,7 +24,7 @@ function uploadPdf($path, $file){
     $fileName = basename($file["name"]);
     $fullPath = $path.$fileName;
     
-    $maxKB = 5000; // 5 MB dimensione massima per pdf
+    $maxKB = 5000;
     $acceptedExtensions = array("pdf");
     $result = 0;
     $msg = "";
@@ -34,7 +34,6 @@ function uploadPdf($path, $file){
         $msg .= "File caricato pesa troppo! Dimensione massima è $maxKB KB. ";
     }
 
-    // Controllo estensione del file
     $fileType = strtolower(pathinfo($fullPath,PATHINFO_EXTENSION));
     if(!in_array($fileType, $acceptedExtensions)){
         $msg .= "Accettate solo le seguenti estensioni: ".implode(",", $acceptedExtensions);
@@ -51,7 +50,6 @@ function uploadPdf($path, $file){
         $fullPath = $path.$fileName;
     }
 
-    // Se non ci sono errori, sposto il file
     if(strlen($msg)==0){
         if(!move_uploaded_file($file["tmp_name"], $fullPath)){
             $msg.= "Errore nel caricamento del file.";

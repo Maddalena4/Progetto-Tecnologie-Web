@@ -30,10 +30,6 @@
 <?php endif; ?>
 </div>
 
-<!-- ==========================
-     NOTIFICHE
-     ========================== -->
-
 <h2 class="fw-bold mt-5 mb-4">Notifiche</h2>
 
 <div class="card shadow-sm">

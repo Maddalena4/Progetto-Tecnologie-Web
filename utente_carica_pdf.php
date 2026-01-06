@@ -14,9 +14,7 @@ $templateParams["errore"] = '';
 $templateParams["facolta_list"] = $dbh->getAllFacolta();
 $templateParams["corsi_list"] = [];
 
-/* ==========================
-   UPLOAD PDF
-   ========================== */
+
 if (isset($_POST["conferma_upload"])) {
     $iduser    = $_SESSION["iduser"];
     $idfacolta = $_POST["idfacolta"] ?? null;
@@ -66,9 +64,7 @@ if (isset($_POST["conferma_upload"])) {
     }
 }
 
-/* ==========================
-   AJAX: CORSI PER FACOLTÀ
-   ========================== */
+
 if (isset($_GET["get_corsi"]) && !empty($_GET["idfacolta"])) {
     $idfacolta = intval($_GET["idfacolta"]);
     $corsi = $dbh->getCorsiByFacolta($idfacolta);

@@ -52,7 +52,6 @@ require_once 'utils/functions.php';
         </div>
     </div>
 
-    <!-- CONTENUTO -->
     <main class="container py-5 flex-column">
         <?php require $templateParams["nome"]; ?>
     </main>
