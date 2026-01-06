@@ -17,19 +17,18 @@ require_once 'utils/functions.php';
 
 <?php if (!empty($templateParams["usa_sidebar"]) && $templateParams["usa_sidebar"] === true): ?>
 
-    <!-- NAVBAR -->
     <nav class="navbar navbar-light shadow-sm px-3">
         <button class="btn btn-light"
                 type="button"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#sidebar"
-                aria-controls="sidebar">
+                aria-controls="sidebar"
+                aria-label="Apri menu di navigazione">
             <span class="bi bi-list" aria-hidden="true"></span>
         </button>
         <span class="fw-bold ms-2 text-white">Università di Bologna</span>
     </nav>
 
-    <!-- SIDEBAR -->
     <div class="offcanvas offcanvas-start sidebar-bg" tabindex="-1" id="sidebar">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title">
@@ -52,7 +51,6 @@ require_once 'utils/functions.php';
         </div>
     </div>
 
-    <!-- CONTENUTO -->
     <main class="container py-5 vh-100 flex-column">
         <?php require $templateParams["nome"]; ?>
     </main>
@@ -75,7 +73,6 @@ require_once 'utils/functions.php';
 
 <?php endif; ?>
 
-<!-- FOOTER -->
 <footer class="footer py-4 px-4 text-white">
     <h3 class="h6 fw-bold">Contatti</h3>
     <p class="mb-1">Contattaci alle nostre mail</p>
