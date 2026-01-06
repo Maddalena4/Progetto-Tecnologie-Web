@@ -320,5 +320,38 @@ class DatabaseHelper{
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getUserCheSeguonoCorso($idcorso) {
+        $stmt = $this->db->prepare(
+            "SELECT iduser FROM user_corso WHERE idcorso = ?"
+        );
+        $stmt->bind_param("i", $idcorso);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function addNotifica($iduser, $messaggio, $link = null) {
+        $stmt = $this->db->prepare(
+            "INSERT INTO notifica (iduser, messaggio, link)
+            VALUES (?, ?, ?)"
+        );
+        $stmt->bind_param("iss", $iduser, $messaggio, $link);
+        return $stmt->execute();
+    }
+
+    public function getNotificheByUser($iduser) {
+        $stmt = $this->db->prepare(
+            "SELECT *
+            FROM notifica
+            WHERE iduser = ?
+            ORDER BY data_notifica DESC
+            LIMIT 10"
+        );
+        $stmt->bind_param("i", $iduser);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
+
+
 }
 ?>
