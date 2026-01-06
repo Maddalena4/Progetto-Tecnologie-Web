@@ -37,7 +37,7 @@ if (isset($_SESSION["iduser"])) {
                     $tot   = $pdf["rating"]["totale"] ?? 0;
                 ?>
                 <small>
-                    ⭐ <?= $media ?>/5 (<?= $tot ?> voti)
+                    тнР <?= $media ?>/5 (<?= $tot ?> voti)
                 </small>
             </div>
 
