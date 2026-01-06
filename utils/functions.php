@@ -29,7 +29,6 @@ function uploadPdf($path, $file){
     $result = 0;
     $msg = "";
 
-    // Controllo dimensione del file
     if ($file["size"] > $maxKB * 1024) {
         $msg .= "File caricato pesa troppo! Dimensione massima è $maxKB KB. ";
     }
@@ -39,7 +38,6 @@ function uploadPdf($path, $file){
         $msg .= "Accettate solo le seguenti estensioni: ".implode(",", $acceptedExtensions);
     }
 
-    // Controllo se esiste file con stesso nome ed eventualmente lo rinomino
     if (file_exists($fullPath)) {
         $i = 1;
         do{

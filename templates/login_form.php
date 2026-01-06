@@ -12,7 +12,6 @@
 
         <form method="POST">
 
-            <!-- EMAIL -->
             <div class="mb-3">
                 <label for="email" class="visually-hidden">Email</label>
                 <input type="email"
@@ -22,8 +21,7 @@
                        placeholder="Your Email"
                        required/>
             </div>
-
-            <!-- PASSWORD -->
+            
             <div class="mb-4">
                 <label for="password" class="visually-hidden">Password</label>
                 <input type="password"
