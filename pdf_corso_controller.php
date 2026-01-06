@@ -70,6 +70,7 @@ foreach ($pdfs as &$pdf) {
         : null;
 }
 
+unset($pdf);
 
 if (!$corso) {
     die("Corso non trovato");
