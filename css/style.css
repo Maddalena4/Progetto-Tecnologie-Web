@@ -9,10 +9,8 @@ body {
 main.container.py-5 {
     flex-grow: 1;
     padding-bottom: 1rem;
-    /* Rimosso overflow e max-height per scroll pagina intera */
 }
 
-/* Esistenti */
 body > div > main > div > button:first-child {
     background-color: #00274D;
     border: 2px solid #00274D;
@@ -34,7 +32,7 @@ body > div > main > div > button:last-child:hover {
 
 footer {
     background-color: #00274D;
-    margin-top: auto; /* Spinge il footer verso il basso */
+    margin-top: auto; 
 }
 
 h1, h2, label {
@@ -86,4 +84,20 @@ main > div:last-child > button:hover {
     background-color: #F5F5F5;
     border-color: #00274D;
     font-weight: bold;
+}
+
+.btn-unibo {
+    background-color: #00274D;
+    color: #ffffff;
+    font-weight: 600;
+    border: 2px solid #00274D;
+}
+
+.btn-unibo:hover,
+.btn-unibo:focus,
+.btn-unibo:active {
+    background-color: #00274D;
+    color: #ffffff;
+    border-color: #00274D;
+    outline: none; 
 }
