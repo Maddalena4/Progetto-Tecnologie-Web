@@ -1,6 +1,6 @@
 INSERT INTO user (email, password, role) VALUES
 ('maddalena.prandini@studio.unibo.it', 'ok', 'admin'),
-('ciao.ciao@gmail.com', 'prova', 'user');
+('elena.fucci3@studio.unibo.it', 'prova', 'user');
 
 INSERT INTO facolta (nome, tipologia) VALUES
 ('Informatica', 'triennale'),
