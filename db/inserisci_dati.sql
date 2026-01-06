@@ -20,4 +20,4 @@ INSERT INTO user_corso (iduser, idcorso) VALUES
 
 INSERT INTO pdf (iduser, idcorso, nomefile, path)
 VALUES
-(2, 1, 'analisi.pdf', 'uploads/pdf/analisi.pdf');
+(2, 1, '3_Overlay_networks.pdf', 'uploads/pdf/3_Overlay_networks.pdf');
