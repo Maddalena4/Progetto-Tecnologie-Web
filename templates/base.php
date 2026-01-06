@@ -30,7 +30,7 @@ require_once 'utils/functions.php';
     </nav>
 
     <div class="offcanvas offcanvas-start sidebar-bg text-white" tabindex="-1"
-     id="sidebar" aria-labelledby="sidebarLabel">
+     id="sidebar" role="dialog" aria-labelledby="sidebarLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="sidebarLabel">
                 <?= getUserRole() === 'admin' ? 'Menu Admin' : 'Menu Utente'; ?>
