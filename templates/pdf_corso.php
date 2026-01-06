@@ -24,14 +24,13 @@ if (isset($_SESSION["iduser"])) {
                class="text-decoration-none text-dark">
 
                 <div class="file-icon-placeholder p-4 border rounded">
-                    <i class="bi bi-file-earmark-pdf-fill fs-1"></i>
+                    <span class="bi bi-file-earmark-pdf-fill fs-1"></span>
                     <div class="mt-2 text-truncate">
                         <?= htmlspecialchars($pdf["nomefile"]) ?>
                     </div>
                 </div>
             </a>
 
-            <!-- MEDIA VALUTAZIONE -->
             <div class="mt-2">
                 <?php
                     $media = $pdf["rating"]["media"] ?? 0;
@@ -42,18 +41,19 @@ if (isset($_SESSION["iduser"])) {
                 </small>
             </div>
 
-            <!-- STELLE VOTABILI -->
             <?php if (isset($_SESSION["iduser"])): ?>
-                <form method="POST" class="mt-1">
+                <form method="POST" class="mt-1" aria-label="Valuta questo PDF da 1 a 5 stelle">
                     <input type="hidden" name="idpdf" value="<?= $pdf["idpdf"] ?>">
+                    
                     <?php for ($i = 1; $i <= 5; $i++): ?>
                         <button type="submit"
                                 name="valore"
                                 value="<?= $i ?>"
-                                class="btn btn-sm p-0 border-0 bg-transparent">
-                            <i class="bi <?= ($pdf["user_rating"] >= $i)
+                                class="btn border-0 bg-transparent star-btn"
+                                aria-label="Valuta <?= $i ?> stelle su 5">
+                            <span class="bi <?= ($pdf["user_rating"] >= $i)
                                 ? 'bi-star-fill text-warning'
-                                : 'bi-star text-secondary' ?>"></i>
+                                : 'bi-star text-secondary' ?>" aria-hidden="true"></span>
                         </button>
                     <?php endfor; ?>
                 </form>
@@ -62,7 +62,6 @@ if (isset($_SESSION["iduser"])) {
         </div>
     </div>
 <?php endforeach; ?>
-
 
 </div>
 
