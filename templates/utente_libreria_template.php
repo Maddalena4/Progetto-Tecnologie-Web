@@ -12,7 +12,7 @@
                 class="form-control"
                 placeholder="Cerca PDF per nome..."
                 value="<?= htmlspecialchars($_GET['q'] ?? '') ?>"
-            >
+            />
             <button class="btn text-white" type="submit" style="background-color: #00274D;">
                 Cerca
             </button>

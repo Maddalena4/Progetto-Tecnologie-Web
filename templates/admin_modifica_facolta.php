@@ -7,7 +7,7 @@
                id="nome_facolta"
                class="form-control"
                value="<?= htmlspecialchars($templateParams['facolta']['nome']); ?>"
-               required>
+               required/>
     </div>
 
     <fieldset class="mb-3">
@@ -15,19 +15,19 @@
 
         <div class="form-check">
             <input class="form-check-input" type="radio" name="tipologia" id="tip_triennale" value="triennale"
-                <?= ($templateParams['facolta']['tipologia'] === 'triennale') ? 'checked' : ''; ?> required>
+                <?= ($templateParams['facolta']['tipologia'] === 'triennale') ? 'checked' : ''; ?> required/>
             <label class="form-check-label" for="tip_triennale">Triennale</label>
         </div>
 
         <div class="form-check">
             <input class="form-check-input" type="radio" name="tipologia" id="tip_magistrale" value="magistrale"
-                <?= ($templateParams['facolta']['tipologia'] === 'magistrale') ? 'checked' : ''; ?> required>
+                <?= ($templateParams['facolta']['tipologia'] === 'magistrale') ? 'checked' : ''; ?> required/>
             <label class="form-check-label" for="tip_magistrale">Magistrale</label>
         </div>
     </fieldset>
 
-    <input type="hidden" name="action" value="update">
-    <input type="hidden" name="idfacolta" value="<?= $templateParams['facolta']['idfacolta']; ?>">
+    <input type="hidden" name="action" value="update"/>
+    <input type="hidden" name="idfacolta" value="<?= $templateParams['facolta']['idfacolta']; ?>"/>
 
     <div class="text-center mt-4">
         <button type="submit" class="btn text-white px-4 py-2" 

@@ -51,8 +51,8 @@
             </a>
 
             <form action="admin_controller_corsi.php" method="POST">
-                <input type="hidden" name="action" value="delete">
-                <input type="hidden" name="idcorso" value="<?= $corso['idcorso']; ?>">
+                <input type="hidden" name="action" value="delete"/>
+                <input type="hidden" name="idcorso" value="<?= $corso['idcorso']; ?>"/>
                 <button type="submit"
                         class="btn btn-sm btn-unibo"
                         aria-label="Elimina corso"

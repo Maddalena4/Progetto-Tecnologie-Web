@@ -28,8 +28,8 @@
             </a>
 
             <form action="admin_facolta_controller.php" method="POST">
-                <input type="hidden" name="action" value="delete">
-                <input type="hidden" name="idfacolta" value="<?= $fac['idfacolta']; ?>">
+                <input type="hidden" name="action" value="delete"/>
+                <input type="hidden" name="idfacolta" value="<?= $fac['idfacolta']; ?>"/>
                 <button type="submit"
                         class="btn btn-sm btn-unibo"
                         aria-label="Elimina facoltà"

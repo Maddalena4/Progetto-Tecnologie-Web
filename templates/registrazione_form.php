@@ -20,7 +20,7 @@
                     name="email"
                     class="form-control form-control-lg"
                     placeholder="Your email"
-                    required>
+                    required/>
             </div>
 
             <!-- PASSWORD -->
@@ -31,7 +31,7 @@
                     name="password"
                     class="form-control form-control-lg"
                     placeholder="Password"
-                    required>
+                    required/>
             </div>
 
             <!-- REPEAT PASSWORD -->
@@ -42,7 +42,7 @@
                     name="repeat_password"
                     class="form-control form-control-lg"
                     placeholder="Repeat your password"
-                    required>
+                    required/>
             </div>
 
             <!-- TERMS -->
@@ -50,7 +50,7 @@
                 <input type="checkbox"
                     id="terms"
                     class="form-check-input"
-                    required>
+                    required/>
                 <label for="terms" class="form-check-label">
                     I agree to the <a href="#">Terms of service</a>
                 </label>

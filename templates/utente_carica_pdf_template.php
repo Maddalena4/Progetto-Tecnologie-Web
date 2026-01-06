@@ -33,7 +33,7 @@
 
                 <div class="mb-4">
                     <label for="filepdf" class="form-label fw-bold">3. Seleziona il File PDF</label>
-                    <input type="file" name="filepdf" id="filepdf" class="form-control" accept=".pdf" required>
+                    <input type="file" name="filepdf" id="filepdf" class="form-control" accept=".pdf" required/>
                     <div class="form-text">Il file non deve superare i 5MB.</div>
                 </div>
 

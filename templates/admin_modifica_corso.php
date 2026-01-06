@@ -2,9 +2,9 @@
 
 <form action="admin_controller_corsi.php" method="POST" class="mb-5 p-4">
 
-    <input type="hidden" name="action" value="update">
+    <input type="hidden" name="action" value="update"/>
     <input type="hidden" name="idcorso"
-           value="<?= $templateParams['corso']['idcorso']; ?>">
+           value="<?= $templateParams['corso']['idcorso']; ?>"/>
 
     <div class="mb-3">
         <label for="facolta_corso" class="form-label fw-semibold">Facoltà</label>
@@ -12,7 +12,7 @@
                id="facolta_corso"
                class="form-control"
                value="<?= htmlspecialchars($templateParams['facolta']['nome']); ?>"
-               disabled>
+               disabled/>
     </div>
 
     <div class="mb-3">
@@ -22,7 +22,7 @@
                name="nome"
                class="form-control"
                value="<?= htmlspecialchars($templateParams['corso']['nome']); ?>"
-               required>
+               required/>
     </div>
 
     <fieldset class="mb-3">
@@ -41,7 +41,7 @@
                        id="anno_<?= $i; ?>"
                        value="<?= $i; ?>"
                        <?= ($templateParams['corso']['anno'] == $i) ? 'checked' : ''; ?>
-                       required>
+                       required/>
                 <label class="form-check-label" for="anno_<?= $i; ?>">
                     <?= $i; ?>° anno
                 </label>

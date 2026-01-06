@@ -20,7 +20,7 @@
                        name="email"
                        class="form-control form-control-lg"
                        placeholder="Your Email"
-                       required>
+                       required/>
             </div>
 
             <!-- PASSWORD -->
@@ -31,7 +31,7 @@
                        name="password"
                        class="form-control form-control-lg"
                        placeholder="Password"
-                       required>
+                       required/>
             </div>
 
             <button type="submit" class="btn btn-lg w-100 gradient-btn">
